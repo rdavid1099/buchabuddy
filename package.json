@@ -1,0 +1,19 @@
+{
+  "name": "buchabuddy",
+  "version": "1.0.0",
+  "description": "Kombucha homebrewer inventory tracking application",
+  "main": "index.js",
+  "repository": "git@github.com:buchabuddy/buchabuddy.git",
+  "author": "Ryan Workman <rdavid1099@gmail.com>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "@rails/webpacker": "^3.2.0",
+    "@uirouter/angularjs": "^1.0.13",
+    "angular": "^1.6.8",
+    "coffeescript": "1.12.7",
+    "html-loader": "^0.5.4"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.11.0"
+  }
+}
