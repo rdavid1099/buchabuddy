@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+  <div class="container">
+    <a class="navbar-brand" href="<%= welcome_index_path %>">BuchaBuddy</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Tracking Tools<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Donate</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav my-2 my-lg-0">
+        <li class="nav-item <%= current_page?(new_user_session_path) ? 'active' : '' %>">
+          <a class="nav-link" href="<%= new_user_session_path %>">Log In/ Create Account</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
