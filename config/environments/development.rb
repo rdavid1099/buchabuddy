@@ -37,6 +37,9 @@ Rails.application.configure do
   # Default URL options for the Devise mailer
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  # Directory for previewing emails sent on development
+  config.action_mailer.preview_path = "#{Rails.root}/lib/mailer_prvw"
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
