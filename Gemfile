@@ -18,6 +18,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 gem 'devise'
+gem 'sidekiq'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap', '~> 4.0.0.beta3'
