@@ -15,9 +15,15 @@
       </ul>
 
       <ul class="navbar-nav my-2 my-lg-0">
-        <li class="nav-item <%= current_page?(new_user_session_path) ? 'active' : '' %>">
-          <a class="nav-link" href="<%= new_user_session_path %>">Log In/ Create Account</a>
-        </li>
+        <% if current_user %>
+          <li class="nav-item">
+            <%= link_to 'Log Out', destroy_user_session_path,  method: :delete, class: 'nav-link' %>
+          </li>
+        <% else %>
+          <li class="nav-item <%= current_page?(new_user_session_path) ? 'active' : '' %>">
+            <a class="nav-link" href="<%= new_user_session_path %>">Log In/ Create Account</a>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
