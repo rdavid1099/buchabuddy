@@ -8,18 +8,13 @@ const fields = {
             '<div class="field form-group">' +
               '<input class="form-control" autocomplete="off" type="password" placeholder="Password" name="user[password]" id="user_password">' +
               '<small class="form-text style-link" onclick="renderField(\'forgotPassword\')">Forgot your password?</small>' +
-            '</div>' +
-            '<div class="field form-check">' +
-              '<input class="form-check-input" name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">' +
-              '<label class="form-check-label" for="user_remember_me">Remember me</label>' +
+              '<small class="form-text style-link" onclick="renderField(\'confirmable\')">Resend Confirmation Email</small>' +
             '</div>' +
             '<div class="actions">' +
               '<input class="btn btn-primary submit" type="submit" name="commit" value="Go" data-disable-with="Log in">' +
             '</div>' +
-          '</form>' +
-          '<small id="sign-up-cta" class="form-text style-link" onclick="renderField(\'confirmable\')">Didn\'t receive confirmation instructions?</small>' +
-          '<small id="sign-up-cta" class="form-text style-link" onclick="renderField(\'lockable\')">Didn\'t receive unlock instructions?</small>',
-  Footer: '<small id="sign-up-cta" class="form-text text-muted">Don\'t have an account? <span class="style-link" onclick="renderField(\'newAccount\')">Sign up</span></small>'
+          '</form>',
+  Footer: '<small class="form-text text-muted">Don\'t have an account? <span class="style-link" onclick="renderField(\'newAccount\')">Sign up</span></small>'
   },
 
   'forgotPassword': {
@@ -28,12 +23,14 @@ const fields = {
             '<div class="field form-group">' +
               '<label for="user_email">Enter your email address, and we\'ll send you a recovery link.</label>' +
               '<input class="form-control" placeholder="Email Address" autofocus="autofocus" type="email" value="" name="user[email]" id="user_email">' +
+              '<small class="form-text style-link" onclick="renderField(\'confirmable\')">Resend Confirmation Email</small>' +
             '</div>' +
             '<div class="actions">' +
               '<input class="btn btn-primary submit" type="submit" name="commit" value="Send Recovery Email" data-disable-with="Send Recovery Email">' +
             '</div>' +
           '</form>',
-    Footer: ''
+    Footer: '<small class="form-text text-muted">Don\'t have an account? <span class="style-link" onclick="renderField(\'newAccount\')">Sign up</span></small>' +
+            '<small class="form-text text-muted">Already have an account? <span class="style-link" onclick="renderField(\'signIn\')">Sign in</span></small>'
   }
 }
 
