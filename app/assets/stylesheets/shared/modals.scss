@@ -1,0 +1,27 @@
+@import "../color_scheme";
+
+#signInModalCenter {
+  .form-check-label {
+    margin-left: 1%;
+  }
+
+  .headline-bar {
+    background-color: $primary-dark;
+    height: 15px;
+    width: 100%;
+  }
+
+  .modal-header {
+    background-color: $primary-color;
+    border-radius: 0px;
+  }
+
+  .actions {
+    text-align: center;
+    margin: 5% 0 3% 0px;
+
+    .btn.btn-primary.submit {
+      width: 50%;
+    }
+  }
+}
