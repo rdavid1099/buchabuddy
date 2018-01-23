@@ -1,6 +1,25 @@
 @import "../color_scheme";
 
 #signInModalCenter {
+  #password-reqs {
+    margin-left: 94%;
+    width: 100%;
+    margin-top: -5%;
+    padding: 0 0.29rem;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+
+    &.show {
+      opacity: 1;
+      -webkit-transition: opacity 0.3s;
+      transition: opacity 0.3s;
+    }
+
+    .tooltip-inner {
+      background-color: $secondary-color;
+    }
+  }
+
   .form-check-label {
     margin-left: 1%;
   }
