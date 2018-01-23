@@ -37,7 +37,8 @@ const fields = {
     LongTitle: 'Create Account',
     Body: '<form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="BQYmqJh7THJLy+sx5f5WH8KwQSVZfReto4FzsBnHYGxyDfzl/pKYMUyIeh6z35imVCFiSKG+SduSDSAUqHvmcA==">' +
             '<div class="field form-group">' +
-              '<input class="form-control" placeholder="Email Address" autofocus="autofocus" type="email" value="" name="user[email]" id="user_email">' +
+              '<input class="form-control" placeholder="Email Address" autofocus="autofocus" type="email" value="" name="user[email]" id="user_email" onkeyup="checkEmail(event)" onblur="checkEmail(event)">' +
+              '<div class="errors"></div>' +
             '</div>' +
             '<div class="field form-group">' +
               '<input class="form-control" placeholder="Password" autocomplete="off" type="password" name="user[password]" id="user_password" onfocus="displayTooltip()" onblur="removeTooltip()">' +
@@ -57,11 +58,17 @@ const fields = {
               '<input class="form-control" placeholder="Password Confirmation" autocomplete="off" type="password" name="user[password_confirmation]" id="user_password_confirmation">' +
             '</div>' +
             '<div class="actions">' +
-              '<input class="btn btn-primary submit" type="submit" name="commit" value="Register" data-disable-with="Register">' +
+              '<input class="btn btn-primary submit disabled" type="submit" name="commit" value="Register" data-disable-with="Register">' +
             '</div>' +
           '</form>',
     Footer: '<small class="form-text text-muted">Already have an account? <span class="style-link" onclick="renderField(\'signIn\')">Sign in</span></small>'
   }
+}
+
+let signUpValidations = {
+  email: false,
+  password: false,
+  passwordConfirm: false
 }
 
 const renderField = (type) => {
@@ -76,4 +83,33 @@ const displayTooltip = () => {
 
 const removeTooltip = () => {
   document.getElementById('password-reqs').classList.remove('show')
+}
+
+const checkEmail = (e) => {
+  let $emailInput = e.currentTarget
+  if ($emailInput.value) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($emailInput.value)) {
+      validate('email', $emailInput)
+    } else {
+      invalidate('email', $emailInput, 'Invalid email address')
+    }
+  } else {
+    invalidate('email', $emailInput, 'Required')
+  }
+}
+
+const validate = (field, input) => {
+  input.classList.remove('is-invalid')
+  input.classList.add('is-valid')
+  input.parentElement.children[1].classList.remove('invalid-feedback')
+  input.parentElement.children[1].innerText = ""
+  signUpValidations[field] = true
+}
+
+const invalidate = (field, input, msg) => {
+  input.classList.remove('is-valid')
+  input.classList.add('is-invalid')
+  input.parentElement.children[1].classList.add('invalid-feedback')
+  input.parentElement.children[1].innerText = msg
+  signUpValidations[field] = false
 }
