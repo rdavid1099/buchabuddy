@@ -17,6 +17,17 @@
 
     .tooltip-inner {
       background-color: $secondary-color;
+      padding: 2%;
+    }
+
+    #password-reqs-list {
+      li.is-valid {
+        color: $is-valid;
+      }
+
+      li.is-invalid {
+        color: $is-invalid;
+      }
     }
   }
 

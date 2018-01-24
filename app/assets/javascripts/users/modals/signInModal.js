@@ -41,23 +41,24 @@ const fields = {
               '<div class="errors"></div>' +
             '</div>' +
             '<div class="field form-group">' +
-              '<input class="form-control" placeholder="Password" autocomplete="off" type="password" name="user[password]" id="user_password" onfocus="displayTooltip()" onblur="removeTooltip()">' +
+              '<input class="form-control" placeholder="Password" autocomplete="off" type="password" name="user[password]" id="user_password" onfocus="displayTooltip()" onblur="removeTooltip()" onkeyup="checkPassword(event)">' +
               '<div class="tooltip bs-tooltip-right" role="tooltip" id="password-reqs">' +
                 '<div class="arrow"></div>' +
                 '<div class="tooltip-inner">' +
-                  '<ul>' +
+                  '<ul id="password-reqs-list">' +
                     '<li><em>At least 6 characters</em></li>' +
                     '<li><em>One uppercase letter</em></li>' +
                     '<li><em>One lowercase letter</em></li>' +
-                    '<li><em>One number letter</em></li>' +
+                    '<li><em>One number</em></li>' +
                   '</ul>' +
                 '</div>' +
               '</div>' +
+              '<div class="errors"></div>' +
             '</div>' +
             '<div class="field form-group">' +
-              '<input class="form-control" placeholder="Password Confirmation" autocomplete="off" type="password" name="user[password_confirmation]" id="user_password_confirmation">' +
+              '<input class="form-control" placeholder="Password Confirmation" autocomplete="off" type="password" name="user[password_confirmation]" id="user_password_confirmation" onkeyup="checkPasswordConfirm(event) onblur="checkPasswordConfirm(event)>' +
             '</div>' +
-            '<div class="actions">' +
+            '<div class="actions" style="pointer-events: none;">' +
               '<input class="btn btn-primary submit disabled" type="submit" name="commit" value="Register" data-disable-with="Register">' +
             '</div>' +
           '</form>',
@@ -98,18 +99,48 @@ const checkEmail = (e) => {
   }
 }
 
+const checkPassword = (e) => {
+  let $pwInput = e.currentTarget
+  let $reqList = document.getElementById('password-reqs-list')
+  if ($pwInput.value) {
+    let validations = [($pwInput.value.length >= 6), (/[A-Z]/.test($pwInput.value)), (/[a-z]/.test($pwInput.value)), (/[0-9]/.test($pwInput.value))]
+    if (!validations.includes(false)) {
+      validate('password', $pwInput)
+    } else {
+      invalidate('password', $pwInput, 'Password must meet all requirements')
+    }
+    for (var i = 0; i < $reqList.children.length; i++) {
+      if (validations[i]) {
+        $reqList.children[i].classList.add('is-valid')
+        $reqList.children[i].classList.remove('is-invalid')
+      } else {
+        $reqList.children[i].classList.add('is-invalid')
+        $reqList.children[i].classList.remove('is-valid')
+      }
+    }
+  } else {
+    for (var i = 0; i < $reqList.children.length; i++) {
+      $reqList.children[i].classList.add('is-invalid')
+      $reqList.children[i].classList.remove('is-valid')
+    }
+    invalidate('password', $pwInput, 'Required')
+  }
+}
+
 const validate = (field, input) => {
+  let index = (field === 'password') ? 2 : 1
   input.classList.remove('is-invalid')
   input.classList.add('is-valid')
-  input.parentElement.children[1].classList.remove('invalid-feedback')
-  input.parentElement.children[1].innerText = ""
+  input.parentElement.children[index].classList.remove('invalid-feedback')
+  input.parentElement.children[index].innerText = ""
   signUpValidations[field] = true
 }
 
 const invalidate = (field, input, msg) => {
+  let index = (field === 'password') ? 2 : 1
   input.classList.remove('is-valid')
   input.classList.add('is-invalid')
-  input.parentElement.children[1].classList.add('invalid-feedback')
-  input.parentElement.children[1].innerText = msg
+  input.parentElement.children[index].classList.add('invalid-feedback')
+  input.parentElement.children[index].innerText = msg
   signUpValidations[field] = false
 }
