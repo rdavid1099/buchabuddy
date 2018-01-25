@@ -56,7 +56,8 @@ const fields = {
               '<div class="errors"></div>' +
             '</div>' +
             '<div class="field form-group">' +
-              '<input class="form-control" placeholder="Password Confirmation" autocomplete="off" type="password" name="user[password_confirmation]" id="user_password_confirmation" onkeyup="checkPasswordConfirm(event) onblur="checkPasswordConfirm(event)>' +
+              '<input class="form-control" placeholder="Password Confirmation" autocomplete="off" type="password" name="user[password_confirmation]" id="user_password_confirmation" onkeyup="checkPasswordConfirm(event)" onblur="checkPasswordConfirm(event)">' +
+              '<div class="errors"></div>' +
             '</div>' +
             '<div class="actions" style="pointer-events: none;">' +
               '<input class="btn btn-primary submit disabled" type="submit" name="commit" value="Register" data-disable-with="Register">' +
@@ -124,6 +125,16 @@ const checkPassword = (e) => {
       $reqList.children[i].classList.remove('is-valid')
     }
     invalidate('password', $pwInput, 'Required')
+  }
+}
+
+const checkPasswordConfirm = (e) => {
+  let $pwConfirmInput = e.currentTarget,
+      $pwInput        = e.target.parentElement.previousElementSibling.firstElementChild
+  if ($pwConfirmInput.value) {
+    $pwConfirmInput.value === $pwInput.value ? validate('passwordConfirm', $pwConfirmInput) : invalidate('passwordConfirm', $pwConfirmInput, 'Passwords do not match')
+  } else {
+    invalidate('passwordConfirm', $pwConfirmInput, 'Required')
   }
 }
 
