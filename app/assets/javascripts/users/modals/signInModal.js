@@ -37,11 +37,11 @@ const fields = {
     LongTitle: 'Create Account',
     Body: '<form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="BQYmqJh7THJLy+sx5f5WH8KwQSVZfReto4FzsBnHYGxyDfzl/pKYMUyIeh6z35imVCFiSKG+SduSDSAUqHvmcA==">' +
             '<div class="field form-group">' +
-              '<input class="form-control" placeholder="Email Address" autofocus="autofocus" type="email" value="" name="user[email]" id="user_email" onkeyup="checkEmail(event)" onblur="checkEmail(event)">' +
+              '<input class="form-control" placeholder="Email Address" autofocus="autofocus" type="email" value="" name="user[email]" id="user_email" onkeyup="checkEmail(event, evaluateSubmitValidity)" onblur="checkEmail(event)">' +
               '<div class="errors"></div>' +
             '</div>' +
             '<div class="field form-group">' +
-              '<input class="form-control" placeholder="Password" autocomplete="off" type="password" name="user[password]" id="user_password" onfocus="displayTooltip()" onblur="removeTooltip()" onkeyup="checkPassword(event)">' +
+              '<input class="form-control" placeholder="Password" autocomplete="off" type="password" name="user[password]" id="user_password" onfocus="displayTooltip()" onblur="removeTooltip()" onkeyup="checkPassword(event, evaluateSubmitValidity)">' +
               '<div class="tooltip bs-tooltip-right" role="tooltip" id="password-reqs">' +
                 '<div class="arrow"></div>' +
                 '<div class="tooltip-inner">' +
@@ -56,11 +56,11 @@ const fields = {
               '<div class="errors"></div>' +
             '</div>' +
             '<div class="field form-group">' +
-              '<input class="form-control" placeholder="Password Confirmation" autocomplete="off" type="password" name="user[password_confirmation]" id="user_password_confirmation" onkeyup="checkPasswordConfirm(event)" onblur="checkPasswordConfirm(event)">' +
+              '<input class="form-control" placeholder="Password Confirmation" autocomplete="off" type="password" name="user[password_confirmation]" id="user_password_confirmation" onkeyup="checkPasswordConfirm(event, evaluateSubmitValidity)" onblur="checkPasswordConfirm(event)">' +
               '<div class="errors"></div>' +
             '</div>' +
             '<div class="actions" style="pointer-events: none;">' +
-              '<input class="btn btn-primary submit disabled" type="submit" name="commit" value="Register" data-disable-with="Register">' +
+              '<input class="btn btn-primary submit disabled" id="new-user-submit" type="submit" name="commit" value="Register" data-disable-with="Register">' +
             '</div>' +
           '</form>',
     Footer: '<small class="form-text text-muted">Already have an account? <span class="style-link" onclick="renderField(\'signIn\')">Sign in</span></small>'
@@ -87,7 +87,7 @@ const removeTooltip = () => {
   document.getElementById('password-reqs').classList.remove('show')
 }
 
-const checkEmail = (e) => {
+const checkEmail = (e, cb) => {
   let $emailInput = e.currentTarget
   if ($emailInput.value) {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($emailInput.value)) {
@@ -98,9 +98,10 @@ const checkEmail = (e) => {
   } else {
     invalidate('email', $emailInput, 'Required')
   }
+  if(cb) {cb()}
 }
 
-const checkPassword = (e) => {
+const checkPassword = (e, cb) => {
   let $pwInput = e.currentTarget
   let $reqList = document.getElementById('password-reqs-list')
   if ($pwInput.value) {
@@ -126,15 +127,28 @@ const checkPassword = (e) => {
     }
     invalidate('password', $pwInput, 'Required')
   }
+  if(cb) {cb()}
 }
 
-const checkPasswordConfirm = (e) => {
+const checkPasswordConfirm = (e, cb) => {
   let $pwConfirmInput = e.currentTarget,
       $pwInput        = e.target.parentElement.previousElementSibling.firstElementChild
   if ($pwConfirmInput.value) {
     $pwConfirmInput.value === $pwInput.value ? validate('passwordConfirm', $pwConfirmInput) : invalidate('passwordConfirm', $pwConfirmInput, 'Passwords do not match')
   } else {
     invalidate('passwordConfirm', $pwConfirmInput, 'Required')
+  }
+  if(cb) {cb()}
+}
+
+const evaluateSubmitValidity = () => {
+  let $registerBtn = document.getElementById('new-user-submit')
+  if (signUpValidations.email && signUpValidations.password && signUpValidations.passwordConfirm) {
+    $registerBtn.classList.remove('disabled')
+    $registerBtn.parentElement.style.pointerEvents = "all"
+  } else {
+    $registerBtn.classList.add('disabled')
+    $registerBtn.parentElement.style.pointerEvents = "none"
   }
 }
 
