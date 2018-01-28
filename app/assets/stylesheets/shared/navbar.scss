@@ -1,0 +1,8 @@
+@import "../color_scheme";
+
+#navbar {
+  background-color: $primary-color;
+  .sign-in:hover {
+    cursor: pointer;
+  }
+}

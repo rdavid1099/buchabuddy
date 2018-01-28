@@ -1,0 +1,65 @@
+@import "../color_scheme";
+
+#signInModalCenter {
+  #password-reqs {
+    margin-left: 94%;
+    width: 100%;
+    margin-top: -5%;
+    padding: 0 0.29rem;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+
+    &.show {
+      opacity: 1;
+      -webkit-transition: opacity 0.3s;
+      transition: opacity 0.3s;
+    }
+
+    .tooltip-inner {
+      background-color: $secondary-color;
+      padding: 2%;
+    }
+
+    #password-reqs-list {
+      li.is-valid {
+        color: $is-valid;
+      }
+
+      li.is-invalid {
+        color: $is-invalid;
+      }
+    }
+  }
+
+  .form-check-label {
+    margin-left: 1%;
+  }
+
+  .headline-bar {
+    background-color: $primary-dark;
+    height: 15px;
+    width: 100%;
+  }
+
+  .modal-header {
+    background-color: $primary-color;
+    border-radius: 0px;
+  }
+
+  .actions {
+    text-align: center;
+    margin: 5% 0 3% 0px;
+
+    .btn.btn-primary.submit {
+      width: 50%;
+    }
+  }
+
+  .sign-in-footer {
+    padding: 1rem;
+    border-top: 1px solid #e9ecef;
+    small:first-child {
+      float: right;
+    }
+  }
+}

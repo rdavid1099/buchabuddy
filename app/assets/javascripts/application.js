@@ -15,4 +15,5 @@
 //= require bootstrap
 //= require jquery_ujs
 //= require turbolinks
+//= require_tree ./users/modals
 //= require_tree .
