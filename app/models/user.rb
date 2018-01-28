@@ -1,6 +1,8 @@
-class User < ApplicationRecord
-  devise :database_authenticatable, :registerable, :lockable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+class User < ActiveRecord::Base
+  devise :database_authenticatable, :registerable,
+          :recoverable, :rememberable, :trackable, :validatable,
+          :confirmable
+  include DeviseTokenAuth::Concerns::User
 
   validate :password_complexity
 

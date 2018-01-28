@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.5.0"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -14,7 +15,9 @@ gem 'webpacker'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
-gem 'devise'
+gem 'devise_token_auth'
+# gem 'omniauth'
+gem 'rack-cors', :require => 'rack/cors'
 gem 'sidekiq'
 # gem 'capistrano-rails', group: :development
 
