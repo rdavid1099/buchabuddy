@@ -1,0 +1,2 @@
+module BuchaBuddyHelper
+end
