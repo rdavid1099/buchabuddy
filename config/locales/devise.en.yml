@@ -18,15 +18,15 @@ en:
       unconfirmed: "You have to confirm your email address before continuing."
     mailer:
       confirmation_instructions:
-        subject: "Confirmation instructions"
+        subject: "Welcome to BuchaBuddy - Confirm Your Email Address"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        subject: "Reset BuchaBuddy Password Instructions"
       unlock_instructions:
-        subject: "Unlock instructions"
+        subject: "Unlock BuchaBuddy Account"
       email_changed:
-        subject: "Email Changed"
+        subject: "BuchaBuddy Account Email Changed"
       password_change:
-        subject: "Password Changed"
+        subject: "BuchaBuddy Account Password Successfully Changed"
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."

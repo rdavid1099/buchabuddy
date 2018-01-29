@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :welcome, only: [:index]
-  root to: 'angular#show'
+  mount_devise_token_auth_for 'User', at: 'auth'
+
+  root to: 'bucha_buddy#index'
 end
