@@ -14,13 +14,9 @@ default: &default
   cache_manifest: false
 
   extensions:
-    - .coffee
-    - .html
-    - .erb
-    - .js
-    - .jsx
+    - .tsx
     - .ts
-    - .vue
+    - .js
     - .sass
     - .scss
     - .css
