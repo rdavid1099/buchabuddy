@@ -1,0 +1,13 @@
+<form class="new_user" id="new_user" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓">
+  <div class="field form-group">
+    <input class="form-control" autofocus="autofocus" type="email" placeholder="Email Address" value="" name="user[email]" id="user_email">
+  </div>
+  <div class="field form-group">
+    <input class="form-control" autocomplete="off" type="password" placeholder="Password" name="user[password]" id="user_password">
+    <small class="form-text style-link" onclick="renderField('forgotPassword')">Forgot your password?</small>
+    <small class="form-text style-link" onclick="renderField('confirmable')">Resend Confirmation Email</small>
+  </div>
+  <div class="actions">
+    <input class="btn btn-primary submit" type="submit" name="commit" value="Go" data-disable-with="Log in">
+  </div>
+</form>

@@ -7,4 +7,10 @@ import templateString from "./navbar.component.html";
   template: templateString,
 })
 
-export class NavbarComponent { }
+export class NavbarComponent {
+  public selected = "login";
+
+  public loadSignInModal() {
+    this.selected = "login";
+  }
+}

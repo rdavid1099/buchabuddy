@@ -3,14 +3,16 @@
     <div class="modal-content">
       <div class="headline-bar"></div>
       <div class="modal-header">
-        <h5 class="modal-title" id="signInModalLongTitle">{{  }}</h5>
+        <h5 class="modal-title" id="signInModalLongTitle">{{ content[selected].header }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body" id="signInModalBody">
+        <login *ngIf="selected === 'login'"></login>
       </div>
-      <div class="sign-in-footer" id="signInModalFooter">
+      <div class="sign-in-footer" id="signInModalFooter" *ngFor="let footer of content[selected].footers">
+        <small class="form-text text-muted">{{ footer.body }}<span class="style-link" *ngIf="footer.link">{{ footer.link }}</span></small>
       </div>
     </div>
   </div>
