@@ -31,6 +31,10 @@
     }
   }
 
+  .actions.disable-pointer-events {
+    pointer-events: none;
+  }
+
   .form-check-label {
     margin-left: 1%;
   }

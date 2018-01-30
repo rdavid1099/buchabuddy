@@ -7,4 +7,10 @@ import templateString from "./forgotPasswordModal.component.html";
   template: templateString,
 })
 
-export class ForgotPasswordModalComponent { }
+export class ForgotPasswordModalComponent {
+  public user: object = {};
+
+  constructor() {
+    this.user = {};
+  }
+}

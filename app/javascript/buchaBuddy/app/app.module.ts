@@ -15,8 +15,8 @@ import { NavbarModule } from "./navbar/navbar.module";
     AppComponent,
   ],
   imports: [
-    CommonModule,
     BrowserModule,
+    CommonModule,
     HttpClientModule,
     NavbarModule,
     NgReduxModule,
