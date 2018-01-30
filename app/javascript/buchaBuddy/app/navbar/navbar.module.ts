@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SignInModalModule } from './modals/signInModal.module';
 
 import { NavbarComponent } from  './navbar.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    SignInModalModule
   ],
   declarations: [
     NavbarComponent
