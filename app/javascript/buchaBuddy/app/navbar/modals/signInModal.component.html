@@ -11,9 +11,11 @@
       <div class="modal-body" id="signInModalBody">
         <login *ngIf="modalState === 'login'"></login>
         <sign-up *ngIf="modalState === 'signUp'"></sign-up>
+        <forgot-password *ngIf="modalState === 'forgotPassword'"></forgot-password>
       </div>
-      <div class="sign-in-footer" id="signInModalFooter" *ngFor="let footer of content[modalState].footers">
-        <small class="form-text text-muted">{{ footer.body }} <span class="style-link" *ngIf="footer.link">{{ footer.link }}</span></small>
+      <div class="sign-in-footer" id="signInModalFooter">
+        <sign-up-link *ngIf="content[modalState].footers.signUpLink"></sign-up-link>
+        <login-link *ngIf="content[modalState].footers.loginLink"></login-link>
       </div>
     </div>
   </div>

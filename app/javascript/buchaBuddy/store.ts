@@ -13,6 +13,7 @@ export function rootReducer(lastState: IAppState, action: Action): IAppState {
   switch (action.type) {
     case NavbarActions.LOGIN: return { modalState: "login" };
     case NavbarActions.SIGNUP: return { modalState: "signUp" };
+    case NavbarActions.FORGOT_PASSWORD: return { modalState: "forgotPassword" };
   }
 
   return lastState;
