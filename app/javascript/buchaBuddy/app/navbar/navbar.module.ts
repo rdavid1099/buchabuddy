@@ -1,20 +1,20 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SignInModalModule } from './modals/signInModal.module';
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
 
-import { NavbarComponent } from  './navbar.component';
+import { SignInModalModule } from "./modals/signInModal.module";
+import { NavbarComponent } from "./navbar.component";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    SignInModalModule
-  ],
   declarations: [
-    NavbarComponent
+    NavbarComponent,
   ],
   exports: [
-    NavbarComponent
-  ]
+    NavbarComponent,
+  ],
+  imports: [
+    CommonModule,
+    SignInModalModule,
+  ],
 })
 
 export class NavbarModule { }
