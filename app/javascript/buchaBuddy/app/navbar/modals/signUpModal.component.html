@@ -1,0 +1,28 @@
+<form class="new_user" id="new_user" accept-charset="UTF-8"><input name="utf8" type="hidden" value="✓">
+  <div class="field form-group">
+    <input class="form-control" placeholder="Email Address" autofocus="autofocus" type="email" value="" name="user[email]" id="user_email">
+    <div class="errors"></div>
+  </div>
+  <div class="field form-group">
+    <input class="form-control" placeholder="Password" autocomplete="off" type="password" name="user[password]" id="user_password">
+    <div class="tooltip bs-tooltip-right" role="tooltip" id="password-reqs">
+      <div class="arrow"></div>
+      <div class="tooltip-inner">
+        <ul id="password-reqs-list">
+          <li><em>At least 6 characters</em></li>
+          <li><em>One uppercase letter</em></li>
+          <li><em>One lowercase letter</em></li>
+          <li><em>One number</em></li>
+        </ul>
+      </div>
+    </div>
+    <div class="errors"></div>
+  </div>
+  <div class="field form-group">
+    <input class="form-control" placeholder="Password Confirmation" autocomplete="off" type="password" name="user[password_confirmation]" id="user_password_confirmation">
+    <div class="errors"></div>
+  </div>
+  <div class="actions" style="pointer-events: none;">
+    <input class="btn btn-primary submit disabled" id="submit" type="submit" name="commit" value="Register" data-disable-with="Register">
+  </div>
+</form>
