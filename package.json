@@ -1,6 +1,13 @@
 {
   "name": "buchabuddy-1_0",
   "private": true,
+  "scripts": {
+    "build": "./bin/webpack",
+    "start": "./bin/bundle exec foreman start -f Procfile.dev",
+    "rails": "./bin/rails server -p 3000",
+    "sidekiq": "./bin/bundle exec sidekiq -q default -q mailers",
+    "webpack-server": "./bin/webpack-dev-server"
+  },
   "dependencies": {
     "@angular/common": "^5.2.2",
     "@angular/compiler": "^5.2.2",
@@ -15,6 +22,11 @@
     "zone.js": "^0.8.20"
   },
   "devDependencies": {
+    "css-loader": "^0.28.9",
+    "html-loader": "^0.5.5",
+    "resolve-url-loader": "^2.2.1",
+    "sass-loader": "^6.0.6",
+    "to-string-loader": "^1.1.5",
     "webpack-dev-server": "^2.11.1"
   }
 }
