@@ -16,6 +16,7 @@ export class SignUpModalComponent implements OnInit {
       email: "",
       password: "",
       password_confirmation: "",
+      username: "",
     };
   }
 

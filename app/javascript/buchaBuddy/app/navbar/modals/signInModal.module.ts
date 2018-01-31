@@ -2,11 +2,12 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 
-import { ValidateEmail } from "../../directives/validateEmail.directive";
-import { ValidateEqual } from "../../directives/validateEqual.directive";
-import { ValidateLowercaseLetter } from "../../directives/validateLowercaseLetter.directive";
-import { ValidateNumber } from "../../directives/validateNumber.directive";
-import { ValidateUppercaseLetter } from "../../directives/validateUppercaseLetter.directive";
+import { ValidateEmail } from "../../directives/validations/validateEmail.directive";
+import { ValidateEqual } from "../../directives/validations/validateEqual.directive";
+import { ValidateLowercaseLetter } from "../../directives/validations/validateLowercaseLetter.directive";
+import { ValidateNumber } from "../../directives/validations/validateNumber.directive";
+import { ValidatePattern } from "../../directives/validations/validatePattern.directive";
+import { ValidateUppercaseLetter } from "../../directives/validations/validateUppercaseLetter.directive";
 import { ForgotPasswordModalComponent } from "./forgotPasswordModal.component";
 import { LoginModalComponent } from "./loginModal.component";
 import { ForgotPasswordLinkComponent } from "./shared/forgotPasswordLink.component";
@@ -29,6 +30,7 @@ import { SignUpModalComponent } from "./signUpModal.component";
     ValidateLowercaseLetter,
     ValidateUppercaseLetter,
     ValidateNumber,
+    ValidatePattern,
   ],
   exports: [
     SignInModalComponent,

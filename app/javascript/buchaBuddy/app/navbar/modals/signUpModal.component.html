@@ -1,5 +1,21 @@
 <form #signUpForm="ngForm" class="new_user" id="new_user" accept-charset="UTF-8"><input name="utf8" type="hidden" value="✓">
   <div class="field form-group">
+    <input id="user_username"
+           class="form-control"
+           [ngClass]="{'is-valid': !username.errors, 'is-invalid': username.errors && (username.dirty || username.touched)}"
+           placeholder="Username"
+           type="username"
+           name="username"
+           [(ngModel)]="user.username"
+           #username="ngModel"
+           required
+           validatePattern="\s">
+     <div class="errors invalid-feedback" *ngIf="username.invalid && (username.dirty || username.touched)">
+       <div *ngIf="username.errors.required">Required</div>
+       <div *ngIf="username.errors.validatePattern && !username.errors.required">Username cannot contain any spaces</div>
+     </div>
+  </div>
+  <div class="field form-group">
     <input id="user_email"
            class="form-control"
            [ngClass]="{'is-valid': !email.errors, 'is-invalid': email.errors && (email.dirty || email.touched)}"
