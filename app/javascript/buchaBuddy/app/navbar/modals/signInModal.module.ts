@@ -3,6 +3,9 @@ import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 
 import { ValidateEmail } from "../../directives/validateEmail.directive";
+import { ValidateLowercaseLetter } from "../../directives/validateLowercaseLetter.directive";
+import { ValidateNumber } from "../../directives/validateNumber.directive";
+import { ValidateUppercaseLetter } from "../../directives/validateUppercaseLetter.directive";
 import { ForgotPasswordModalComponent } from "./forgotPasswordModal.component";
 import { LoginModalComponent } from "./loginModal.component";
 import { ForgotPasswordLinkComponent } from "./shared/forgotPasswordLink.component";
@@ -21,6 +24,9 @@ import { SignUpModalComponent } from "./signUpModal.component";
     SignUpLinkComponent,
     SignUpModalComponent,
     ValidateEmail,
+    ValidateLowercaseLetter,
+    ValidateUppercaseLetter,
+    ValidateNumber,
   ],
   exports: [
     SignInModalComponent,

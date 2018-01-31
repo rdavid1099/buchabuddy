@@ -1,33 +1,13 @@
 @import "../../../shared/color_scheme";
 
 #signInModalCenter {
-  #password-reqs {
-    margin-left: 94%;
-    width: 100%;
-    margin-top: -5%;
-    padding: 0 0.29rem;
-    -webkit-transition: opacity 0.3s;
-    transition: opacity 0.3s;
-
-    &.show {
-      opacity: 1;
-      -webkit-transition: opacity 0.3s;
-      transition: opacity 0.3s;
+  #password-reqs-list {
+    li.is-valid {
+      color: $is-valid;
     }
 
-    .tooltip-inner {
-      background-color: $secondary-color;
-      padding: 2%;
-    }
-
-    #password-reqs-list {
-      li.is-valid {
-        color: $is-valid;
-      }
-
-      li.is-invalid {
-        color: $is-invalid;
-      }
+    li.is-invalid {
+      color: $is-invalid;
     }
   }
 

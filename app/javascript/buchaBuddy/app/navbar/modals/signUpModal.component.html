@@ -1,28 +1,71 @@
-<form class="new_user" id="new_user" accept-charset="UTF-8"><input name="utf8" type="hidden" value="✓">
+<form #signUpForm="ngForm" class="new_user" id="new_user" accept-charset="UTF-8"><input name="utf8" type="hidden" value="✓">
   <div class="field form-group">
-    <input class="form-control" placeholder="Email Address" autofocus="autofocus" type="email" value="" name="user[email]" id="user_email">
-    <div class="errors"></div>
+    <input id="user_email"
+           class="form-control"
+           [ngClass]="{'is-valid': !email.errors, 'is-invalid': email.errors && (email.dirty || email.touched)}"
+           placeholder="Email Address"
+           type="email"
+           name="email"
+           [(ngModel)]="user.email"
+           #email="ngModel"
+           required
+           validateEmail>
+     <div class="errors invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
+       <div *ngIf="email.errors.required">Required</div>
+       <div *ngIf="email.errors.validateEmail && !email.errors.required">Invalid email address</div>
+     </div>
   </div>
   <div class="field form-group">
-    <input class="form-control" placeholder="Password" autocomplete="off" type="password" name="user[password]" id="user_password">
-    <div class="tooltip bs-tooltip-right" role="tooltip" id="password-reqs">
-      <div class="arrow"></div>
-      <div class="tooltip-inner">
-        <ul id="password-reqs-list">
-          <li><em>At least 6 characters</em></li>
-          <li><em>One uppercase letter</em></li>
-          <li><em>One lowercase letter</em></li>
-          <li><em>One number</em></li>
-        </ul>
-      </div>
-    </div>
-    <div class="errors"></div>
+    <input id="user_password"
+           class="form-control"
+           placeholder="Password"
+           [ngClass]="{'is-valid': !password.errors, 'is-invalid': password.errors && (password.dirty || password.touched)}"
+           autocomplete="off"
+           type="password"
+           name="password"
+           [(ngModel)]="user.password"
+           #password="ngModel"
+           required
+           minlength="6"
+           validateUppercaseLetter
+           validateLowercaseLetter
+           validateNumber>
+     <div class="errors invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">
+       <div *ngIf="password.errors.required">Required</div>
+     </div>
+    <small id="password-reqs-list" class="form-text">
+      <ul>
+        <li [ngClass]="{'is-invalid': (password.invalid && (password.dirty || password.touched)) && password.errors.minlength}">At least 6 characters</li>
+        <li [ngClass]="{'is-invalid': (password.invalid && (password.dirty || password.touched)) && password.errors.validateUppercaseLetter}">One uppercase letter</li>
+        <li [ngClass]="{'is-invalid': (password.invalid && (password.dirty || password.touched)) && password.errors.validateLowercaseLetter}">One lowercase letter</li>
+        <li [ngClass]="{'is-invalid': (password.invalid && (password.dirty || password.touched)) && password.errors.validateNumber}">One number</li>
+      </ul>
+    </small>
   </div>
   <div class="field form-group">
-    <input class="form-control" placeholder="Password Confirmation" autocomplete="off" type="password" name="user[password_confirmation]" id="user_password_confirmation">
-    <div class="errors"></div>
+    <input id="user_password_confirmation"
+           class="form-control"
+           placeholder="Password Confirmation"
+           [ngClass]="{'is-valid': !pwConfirm.errors, 'is-invalid': pwConfirm.errors && (pwConfirm.dirty || pwConfirm.touched)}"
+           autocomplete="off"
+           type="password"
+           name="password_confirmation"
+           [(ngModel)]="user.password_confirmation"
+           #pwConfirm="ngModel"
+           required
+           validateEqual="password">
+   <div class="errors invalid-feedback" *ngIf="pwConfirm.invalid && (pwConfirm.dirty || pwConfirm.touched)">
+     <div *ngIf="pwConfirm.errors.required">Required</div>
+   </div>
   </div>
-  <div class="actions" style="pointer-events: none;">
-    <input class="btn btn-primary submit disabled" id="submit" type="submit" name="commit" value="Register" data-disable-with="Register">
+  <div class="actions"
+       [ngClass]="{'disable-pointer-events': !signUpForm.valid}">
+    <input class="btn btn-primary submit"
+           [ngClass]="{'disabled': !signUpForm.valid}"
+           id="submit"
+           type="submit"
+           name="commit"
+           value="Register"
+           data-disable-with="Register">
   </div>
 </form>

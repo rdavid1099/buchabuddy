@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 
+import { IUser } from "./iuser.interface";
 import templateString from "./signUpModal.component.html";
 
 @Component({
@@ -7,4 +8,18 @@ import templateString from "./signUpModal.component.html";
   template: templateString,
 })
 
-export class SignUpModalComponent { }
+export class SignUpModalComponent implements OnInit {
+  public user: IUser;
+
+  public ngOnInit() {
+    this.user = {
+      email: "",
+      password: "",
+      password_confirmation: "",
+    };
+  }
+
+  public ngOnDestroy() {
+    this.user = null;
+  }
+}
