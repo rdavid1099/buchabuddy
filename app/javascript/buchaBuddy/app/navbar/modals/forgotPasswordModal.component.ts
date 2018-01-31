@@ -1,13 +1,13 @@
 import { Component } from "@angular/core";
 
-import templateString from "./loginModal.component.html";
+import templateString from "./forgotPasswordModal.component.html";
 
 @Component({
-  selector: "login",
+  selector: "forgot-password",
   template: templateString,
 })
 
-export class LoginModalComponent {
+export class ForgotPasswordModalComponent {
   public user: object = {};
 
   public ngOnDestroy() {

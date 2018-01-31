@@ -10,9 +10,11 @@
     "lint": "./node_modules/.bin/tslint -c tslint.json './app/javascript/buchabuddy/**/*.ts'"
   },
   "dependencies": {
+    "@angular-redux/store": "^7",
     "@angular/common": "^5.2.2",
     "@angular/compiler": "^5.2.2",
     "@angular/core": "^5.2.2",
+    "@angular/forms": "^5.2.2",
     "@angular/platform-browser": "^5.2.2",
     "@angular/platform-browser-dynamic": "^5.2.2",
     "@rails/webpacker": "^3.2.1",
@@ -21,6 +23,7 @@
     "core-js": "^2.5.3",
     "jquery": "^3.3.1",
     "popper.js": "^1.12.9",
+    "redux": "^3.5.0",
     "rxjs": "^5.5.6",
     "ts-loader": "^3.3.1",
     "typescript": "^2.6.2",

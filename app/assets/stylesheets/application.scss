@@ -1,6 +1,6 @@
 @import "bootstrap";
-@import "global";
-@import "overwrite_bootstrap";
+@import "app/global";
+@import "app/overwrite_bootstrap";
+@import "app/navbar/modals/modals";
+@import "app/navbar/navbar";
 @import "shared/flash_alert";
-@import "shared/modals";
-@import "shared/navbar";

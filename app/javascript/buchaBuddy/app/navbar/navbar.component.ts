@@ -1,5 +1,8 @@
+import { NgRedux } from "@angular-redux/store";
 import { Component } from "@angular/core";
 
+import { IAppState } from "../../store";
+import { NavbarActions } from "./navbar.actions";
 import templateString from "./navbar.component.html";
 
 @Component({
@@ -8,9 +11,16 @@ import templateString from "./navbar.component.html";
 })
 
 export class NavbarComponent {
-  public selected = "login";
+  constructor(
+    private ngRedux: NgRedux<IAppState>,
+    private actions: NavbarActions,
+  ) { }
 
-  public loadSignInModal() {
-    this.selected = "login";
+  public loadLoginModal() {
+    this.ngRedux.dispatch(this.actions.login());
+  }
+
+  public loadSignUpModal() {
+    this.ngRedux.dispatch(this.actions.signUp());
   }
 }
