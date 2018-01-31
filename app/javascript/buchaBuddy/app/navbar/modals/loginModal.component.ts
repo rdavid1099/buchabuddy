@@ -7,4 +7,10 @@ import templateString from "./loginModal.component.html";
   template: templateString,
 })
 
-export class LoginModalComponent { }
+export class LoginModalComponent {
+  public user: object = {};
+
+  public ngOnDestroy() {
+    this.user = null;
+  }
+}

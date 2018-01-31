@@ -17,7 +17,6 @@ export class SignInModalComponent {
     forgotPassword: {
       footers: {
         loginLink: true,
-        signUpLink: true,
       },
       header: "Forgot Your Password?",
     },

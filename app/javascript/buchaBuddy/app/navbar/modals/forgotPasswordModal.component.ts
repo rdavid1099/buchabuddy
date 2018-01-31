@@ -10,7 +10,7 @@ import templateString from "./forgotPasswordModal.component.html";
 export class ForgotPasswordModalComponent {
   public user: object = {};
 
-  constructor() {
-    this.user = {};
+  public ngOnDestroy() {
+    this.user = null;
   }
 }

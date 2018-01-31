@@ -1,13 +1,43 @@
-<form class="new_user" id="new_user" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓">
+<form #loginForm="ngForm" class="new_user" id="new_user" accept-charset="UTF-8"><input name="utf8" type="hidden" value="✓">
   <div class="field form-group">
-    <input class="form-control" autofocus="autofocus" type="email" placeholder="Email Address" value="" name="user[email]" id="user_email">
+    <input id="user_email"
+           class="form-control"
+           [ngClass]="{'is-invalid': email.errors && (email.dirty || email.touched)}"
+           placeholder="Email Address"
+           type="email"
+           name="email"
+           [(ngModel)]="user.email"
+           #email="ngModel"
+           required>
+    <div class="errors invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.errors.required">Required</div>
+    </div>
   </div>
   <div class="field form-group">
-    <input class="form-control" autocomplete="off" type="password" placeholder="Password" name="user[password]" id="user_password">
+    <input id="user_password"
+           class="form-control"
+           placeholder="Password"
+           [ngClass]="{'is-invalid': password.errors && (password.dirty || password.touched)}"
+           autocomplete="off"
+           type="password"
+           name="password"
+           [(ngModel)]="user.password"
+           #password="ngModel"
+           required>
+     <div class="errors invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">
+       <div *ngIf="password.errors.required">Required</div>
+     </div>
     <forgot-password-link></forgot-password-link>
-    <small class="form-text style-link">Resend Confirmation Email</small>
+    <!-- <small class="form-text style-link">Resend Confirmation Email</small> -->
   </div>
-  <div class="actions">
-    <input class="btn btn-primary submit" type="submit" name="commit" value="Go" data-disable-with="Log in">
+  <div class="actions"
+       [ngClass]="{'disable-pointer-events': !loginForm.valid}">
+    <input class="btn btn-primary submit"
+           [ngClass]="{'disabled': !loginForm.valid}"
+           id="submit"
+           type="submit"
+           name="commit"
+           value="Go"
+           data-disable-with="Go">
   </div>
 </form>

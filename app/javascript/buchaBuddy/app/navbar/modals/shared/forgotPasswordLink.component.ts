@@ -6,7 +6,7 @@ import { NavbarActions } from "../../navbar.actions";
 
 @Component({
   selector: "forgot-password-link",
-  template: "<small class=\"form-text style-link\" (click)=\"loadForgotPasswordModal()\">" +
+  template: "<small class=\"form-text style-link col-sm-5\" (click)=\"loadForgotPasswordModal()\">" +
               "Forgot your password?" +
             "</small>",
 })
