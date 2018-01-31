@@ -53,9 +53,10 @@
            [(ngModel)]="user.password_confirmation"
            #pwConfirm="ngModel"
            required
-           validateEqual="password">
+           [validateEqual]="password">
    <div class="errors invalid-feedback" *ngIf="pwConfirm.invalid && (pwConfirm.dirty || pwConfirm.touched)">
      <div *ngIf="pwConfirm.errors.required">Required</div>
+     <div *ngIf="pwConfirm.errors.validateEqual && !pwConfirm.errors.required">Passwords do not match</div>
    </div>
   </div>
   <div class="actions"
