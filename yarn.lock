@@ -30,6 +30,12 @@
   dependencies:
     tslib "^1.7.1"
 
+"@angular/http@^5.0.0":
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/@angular/http/-/http-5.2.2.tgz#d33c128d5737f8d701bbac3e7e23d831deec3457"
+  dependencies:
+    tslib "^1.7.1"
+
 "@angular/platform-browser-dynamic@^5.2.2":
   version "5.2.2"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-5.2.2.tgz#2ddd7fa28bb34ae9e181e6f286dfe4c96bde95a6"
@@ -39,6 +45,12 @@
 "@angular/platform-browser@^5.2.2":
   version "5.2.2"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-5.2.2.tgz#3eedcbbcc8c0e6c91eba7ed2b32de7c6679d9b62"
+  dependencies:
+    tslib "^1.7.1"
+
+"@angular/router@^5.0.0":
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/@angular/router/-/router-5.2.2.tgz#b0ffd7121290e8c01f20862b4a2638ebcebc61cf"
   dependencies:
     tslib "^1.7.1"
 
@@ -143,6 +155,10 @@ alphanum-sort@^1.0.1, alphanum-sort@^1.0.2:
 amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
+
+angular2-token@^0.2.0-beta.14:
+  version "0.2.0-beta.14"
+  resolved "https://registry.yarnpkg.com/angular2-token/-/angular2-token-0.2.0-beta.14.tgz#ed23b461f698b5e24cf472946ba1032f631c3cc4"
 
 ansi-html@0.0.7:
   version "0.0.7"

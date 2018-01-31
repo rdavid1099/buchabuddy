@@ -1,5 +1,5 @@
-import { HttpClient } from "@angular/common/http";
 import { Component } from "@angular/core";
+import { Angular2TokenService } from "angular2-token";
 
 import templateString from "./app.component.html";
 
@@ -8,14 +8,9 @@ import templateString from "./app.component.html";
   template: templateString,
 })
 export class AppComponent {
-  public name = "Angular";
   constructor(
-    private http: HttpClient,
-  ) {}
-
-  private changeName() {
-    // this.http.get("/testing").subscribe((data) => {
-    //   return this.name = data["name"];
-    // })
+    private tokenService: Angular2TokenService,
+  ) {
+    this.tokenService.init();
   }
 }
