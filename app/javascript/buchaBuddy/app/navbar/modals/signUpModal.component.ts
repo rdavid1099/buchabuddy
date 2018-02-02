@@ -22,18 +22,13 @@ export class SignUpModalComponent implements OnInit {
     this.user = {
       email: "",
       password: "",
-      password_confirmation: "",
+      passwordConfirmation: "",
       username: "",
     };
   }
 
   public submit() {
-    this.tokenService.registerAccount({
-      email:                this.user.email,
-      password:             this.user.password,
-      passwordConfirmation: this.user.password_confirmation,
-      username:             this.user.username,
-    }).subscribe(
+    this.tokenService.registerAccount(this.sanitizedParams()).subscribe(
         (res) =>      console.log(res),
         (error) =>    console.log(error),
     );
@@ -43,8 +38,13 @@ export class SignUpModalComponent implements OnInit {
     this.user = null;
   }
 
-  private setParams() {
-    const params = {};
+  private sanitizedParams(): { username: string, email: string, password: string, passwordConfirmation: string } {
+    const params: { username: string, email: string, password: string, passwordConfirmation: string } = {
+      email: "",
+      password: "",
+      passwordConfirmation: "",
+      username: "",
+    };
     Object.keys(this.user).forEach((key) => {
       params[key] = this.user[key];
     });

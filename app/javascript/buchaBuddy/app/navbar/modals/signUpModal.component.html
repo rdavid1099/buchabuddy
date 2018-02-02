@@ -65,8 +65,8 @@
            [ngClass]="{'is-valid': !pwConfirm.errors, 'is-invalid': pwConfirm.errors && (pwConfirm.dirty || pwConfirm.touched)}"
            autocomplete="off"
            type="password"
-           name="password_confirmation"
-           [(ngModel)]="user.password_confirmation"
+           name="passwordConfirmation"
+           [(ngModel)]="user.passwordConfirmation"
            #pwConfirm="ngModel"
            required
            [validateEqual]="password">
