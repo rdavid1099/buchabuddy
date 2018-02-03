@@ -6,10 +6,9 @@ import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 import { Angular2TokenService } from "angular2-token";
 
-import { IAppState, INITIAL_STATE, rootReducer } from "../store";
 import { AppComponent } from "./app.component";
-import { NavbarActions } from "./navbar/navbar.actions";
 import { NavbarModule } from "./navbar/navbar.module";
+import { StoreModule } from "./store/store.module";
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -21,18 +20,11 @@ import { NavbarModule } from "./navbar/navbar.module";
     NavbarModule,
     NgReduxModule,
     RouterModule,
+    StoreModule,
   ],
   providers: [
     Angular2TokenService,
-    NavbarActions,
   ],
 })
 
-export class AppModule {
-  constructor(ngRedux: NgRedux<IAppState>) {
-    ngRedux.configureStore(
-      rootReducer,
-      INITIAL_STATE,
-    );
-  }
-}
+export class AppModule { }

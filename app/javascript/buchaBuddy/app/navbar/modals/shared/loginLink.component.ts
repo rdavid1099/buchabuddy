@@ -1,8 +1,8 @@
 import { NgRedux } from "@angular-redux/store";
 import { Component } from "@angular/core";
 
-import { IAppState } from "../../../../store";
-import { NavbarActions } from "../../navbar.actions";
+import { IAppState } from "../../../store/store.model";
+import { NavbarActions } from "../../api/navbar.actions";
 
 @Component({
   selector: "login-link",

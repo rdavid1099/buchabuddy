@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Angular2TokenService } from "angular2-token";
 
-import { IUser } from "./iuser.interface";
+import { IUserLogin } from "./iuserlogin.interface";
 import templateString from "./signUpModal.component.html";
 
 @Component({
@@ -10,7 +10,7 @@ import templateString from "./signUpModal.component.html";
 })
 
 export class SignUpModalComponent implements OnInit {
-  public user: IUser;
+  public user: IUserLogin;
 
   constructor(
     private tokenService: Angular2TokenService,

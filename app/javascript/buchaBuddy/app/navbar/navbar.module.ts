@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 
+import { NavbarActions } from "./api/navbar.actions";
 import { SignInModalModule } from "./modals/signInModal.module";
 import { NavbarComponent } from "./navbar.component";
 
@@ -15,6 +16,7 @@ import { NavbarComponent } from "./navbar.component";
     CommonModule,
     SignInModalModule,
   ],
+  providers: [NavbarActions],
 })
 
 export class NavbarModule { }
