@@ -1,6 +1,9 @@
+import { NgRedux } from "@angular-redux/store";
 import { Component, OnInit } from "@angular/core";
 import { Angular2TokenService } from "angular2-token";
 
+import { IAppState } from "../../store/store.model";
+import { UserActions } from "../../user/user.actions";
 import templateString from "./loginModal.component.html";
 
 @Component({
@@ -13,6 +16,8 @@ export class LoginModalComponent implements OnInit {
 
   constructor(
     private tokenService: Angular2TokenService,
+    private ngRedux: NgRedux<IAppState>,
+    private actions: UserActions,
   ) {
     this.tokenService.init();
   }
@@ -28,7 +33,10 @@ export class LoginModalComponent implements OnInit {
     this.tokenService.signIn(
       this.user,
     ).subscribe(
-      (res) => console.log(res),
+      (res) => {
+        console.log(res);
+        this.ngRedux.dispatch(this.actions.signIn());
+      },
       (err) => console.log(err),
     );
   }

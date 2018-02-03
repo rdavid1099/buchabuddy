@@ -11,10 +11,16 @@ import templateString from "./navbar.component.html";
 })
 
 export class NavbarComponent {
+  public loggedIn: boolean;
+  private subscription;
+
   constructor(
     private ngRedux: NgRedux<IAppState>,
     private actions: NavbarActions,
-  ) { }
+  ) {
+    this.subscription = ngRedux.select<boolean>("loggedIn")
+      .subscribe((newLoggedInState) => this.loggedIn = newLoggedInState);
+  }
 
   public loadLoginModal() {
     this.ngRedux.dispatch(this.actions.login());

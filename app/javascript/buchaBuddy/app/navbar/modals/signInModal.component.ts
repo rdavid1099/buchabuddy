@@ -34,7 +34,7 @@ export class SignInModalComponent {
     },
   };
 
-  public subscription;
+  private subscription;
 
   constructor(
     private ngRedux: NgRedux<IAppState>,

@@ -1,6 +1,9 @@
 import { Action } from "redux";
-import { NavbarActions } from "../navbar/api/navbar.actions";
+
 import { IAppState } from "./store.model";
+
+import { NavbarActions } from "../navbar/api/navbar.actions";
+import { UserActions } from "../user/user.actions";
 
 export const INITIAL_STATE: IAppState = {
   currentUser: null,
@@ -22,5 +25,10 @@ export function rootReducer(lastState: IAppState = INITIAL_STATE, action: Action
       ...lastState,
       modalState: "forgotPassword",
     };
+    case UserActions.SIGNIN: return {
+      ...lastState,
+      loggedIn: true,
+    };
   }
+  return lastState;
 }

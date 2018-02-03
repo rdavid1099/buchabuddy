@@ -3,11 +3,11 @@ import { Action } from "redux";
 
 @Injectable()
 export class UserActions {
-  public static LOGIN = "LOGIN";
+  public static SIGNIN = "SIGNIN";
   public static LOGOUT = "LOGOUT";
 
-  public login(): Action {
-    return { type: UserActions.LOGIN };
+  public signIn(): Action {
+    return { type: UserActions.SIGNIN };
   }
 
   public logout(): Action {
