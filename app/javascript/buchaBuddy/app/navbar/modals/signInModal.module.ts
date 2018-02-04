@@ -2,6 +2,7 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 
+import { LoadingIconComponent } from "../../components/loadingIcon.component";
 import { ValidateEmail } from "../../directives/validations/validateEmail.directive";
 import { ValidateEqual } from "../../directives/validations/validateEqual.directive";
 import { ValidateLowercaseLetter } from "../../directives/validations/validateLowercaseLetter.directive";
@@ -23,6 +24,7 @@ import { UserActions } from "../../user/user.actions";
     ForgotPasswordLinkComponent,
     ForgotPasswordModalComponent,
     LoginLinkComponent,
+    LoadingIconComponent,
     LoginModalComponent,
     SignInModalComponent,
     SignUpLinkComponent,

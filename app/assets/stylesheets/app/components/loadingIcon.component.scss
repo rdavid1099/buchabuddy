@@ -1,0 +1,16 @@
+@import "../../shared/color_scheme";
+
+.loading-icon {
+  border: 16px solid $primary-light;
+  border-top: 16px solid $primary-color;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  margin-top: 90px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
