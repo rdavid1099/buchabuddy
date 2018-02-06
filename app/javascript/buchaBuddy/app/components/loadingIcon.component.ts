@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 
 @Component({
   selector: "loading-icon",
-  template: "<center><div class='loading-icon'></div></center>",
+  template: "<div class='loading-icon'></div>",
 })
 
 export class LoadingIconComponent { }
