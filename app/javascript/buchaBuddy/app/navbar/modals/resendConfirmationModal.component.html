@@ -1,6 +1,6 @@
-<form #forgotPasswordForm="ngForm" class="new_user" id="new_user" accept-charset="UTF-8"><input name="utf8" type="hidden" value="✓">
+<form #resendConfirmationForm="ngForm" class="new_user" id="new_user" accept-charset="UTF-8"><input name="utf8" type="hidden" value="✓">
   <div class="field form-group">
-    <label for="user_email">Enter your email address, and we'll send you a recovery link.</label>
+    <label for="user_email">Enter your email address, and we'll resend you confirmation instructions.</label>
     <input id="user_email"
            class="form-control"
            [ngClass]="{'is-valid': !email.errors, 'is-invalid': email.errors && (email.dirty || email.touched)}"
@@ -15,16 +15,16 @@
       <div *ngIf="email.errors.required">Required</div>
       <div *ngIf="email.errors.validateEmail && !email.errors.required">Invalid email address</div>
     </div>
-    <resend-confirmation-link></resend-confirmation-link>
+    <forgot-password-link></forgot-password-link>
   </div>
   <div class="actions"
-       [ngClass]="{'disable-pointer-events': !forgotPasswordForm.valid}">
+       [ngClass]="{'disable-pointer-events': !resendConfirmationForm.valid}">
     <input class="btn btn-primary submit"
-           [ngClass]="{'disabled': !forgotPasswordForm.valid}"
+           [ngClass]="{'disabled': !resendConfirmationForm.valid}"
            id="submit"
            type="submit"
            name="commit"
-           value="Send Recovery Email"
-           data-disable-with="Send Recovery Email">
+           value="Resend Email"
+           data-disable-with="Resend Email">
   </div>
 </form>

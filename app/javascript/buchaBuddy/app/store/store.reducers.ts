@@ -25,6 +25,10 @@ export function rootReducer(lastState: IAppState = INITIAL_STATE, action: Action
       ...lastState,
       modalState: "forgotPassword",
     };
+    case NavbarActions.RESEND_CONFIRMATION: return {
+      ...lastState,
+      modalState: "resendConfirmation",
+    };
     case UserActions.SIGNIN: return {
       ...lastState,
       loggedIn: true,

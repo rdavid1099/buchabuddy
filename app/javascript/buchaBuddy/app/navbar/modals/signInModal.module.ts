@@ -11,8 +11,10 @@ import { ValidatePattern } from "../../directives/validations/validatePattern.di
 import { ValidateUppercaseLetter } from "../../directives/validations/validateUppercaseLetter.directive";
 import { ForgotPasswordModalComponent } from "./forgotPasswordModal.component";
 import { LoginModalComponent } from "./loginModal.component";
+import { ResendConfirmationModalComponent } from "./resendConfirmationModal.component";
 import { ForgotPasswordLinkComponent } from "./shared/forgotPasswordLink.component";
 import { LoginLinkComponent } from "./shared/loginLink.component";
+import { ResendConfirmationLinkComponent } from "./shared/resendConfirmationLink.component";
 import { SignUpLinkComponent } from "./shared/signUpLink.component";
 import { SignInModalComponent } from "./signInModal.component";
 import { SignUpModalComponent } from "./signUpModal.component";
@@ -26,6 +28,8 @@ import { UserActions } from "../../user/user.actions";
     LoginLinkComponent,
     LoadingIconComponent,
     LoginModalComponent,
+    ResendConfirmationLinkComponent,
+    ResendConfirmationModalComponent,
     SignInModalComponent,
     SignUpLinkComponent,
     SignUpModalComponent,

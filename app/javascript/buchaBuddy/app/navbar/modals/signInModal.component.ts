@@ -26,6 +26,12 @@ export class SignInModalComponent {
       },
       header: "Sign In",
     },
+    resendConfirmation: {
+      footers: {
+        loginLink: true,
+      },
+      header: "Confirm Your Email",
+    },
     signUp: {
       footers: {
         loginLink: true,

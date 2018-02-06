@@ -28,7 +28,7 @@
        <div *ngIf="password.errors.required">Required</div>
      </div>
     <forgot-password-link></forgot-password-link>
-    <!-- <small class="form-text style-link">Resend Confirmation Email</small> -->
+    <resend-confirmation-link></resend-confirmation-link>
   </div>
   <div class="actions"
        [ngClass]="{'disable-pointer-events': !loginForm.valid}">

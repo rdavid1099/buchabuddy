@@ -12,6 +12,7 @@
         <login *ngIf="modalState === 'login'"></login>
         <sign-up *ngIf="modalState === 'signUp'"></sign-up>
         <forgot-password *ngIf="modalState === 'forgotPassword'"></forgot-password>
+        <resend-confirmation *ngIf="modalState === 'resendConfirmation'"></resend-confirmation>
       </div>
       <div class="sign-in-footer" id="signInModalFooter">
         <sign-up-link *ngIf="content[modalState].footers.signUpLink"></sign-up-link>
