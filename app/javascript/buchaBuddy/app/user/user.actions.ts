@@ -1,3 +1,5 @@
+/* tslint:disable: max-classes-per-file */
+
 import { Action } from "redux";
 
 import { IUser } from "./iuser.interface";
@@ -19,5 +21,15 @@ export class Login implements Action {
   }
 }
 
+export class Logout implements Action {
+  public readonly type: string = UserActionTypes.Logout;
+  constructor(public payload?: IUser) { }
+
+  public dispatch() {
+    return { type: this.type };
+  }
+}
+
 export type Actions =
-  | Login;
+  | Login
+  | Logout;

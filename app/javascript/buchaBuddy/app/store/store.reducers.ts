@@ -36,6 +36,12 @@ export function rootReducer(lastState: IAppState = INITIAL_STATE, action: Action
       currentUser: action.payload,
       loggedIn: true,
     };
+    case UserActionTypes.Logout: return {
+      ...lastState,
+      currentUser: null,
+      loggedIn: false,
+    };
+
     // case ErrorActions.DISPLAY: return {
     //   ...lastState,
     //   error: null,
