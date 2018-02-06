@@ -4,7 +4,7 @@ import { IAppState } from "./store.model";
 
 import { ErrorActions } from "../error/error.actions";
 import { NavbarActions } from "../navbar/api/navbar.actions";
-import { UserActions } from "../user/user.actions";
+import { Actions, UserActionTypes } from "../user/user.actions";
 
 export const INITIAL_STATE: IAppState = {
   currentUser: null,
@@ -13,7 +13,7 @@ export const INITIAL_STATE: IAppState = {
   modalState: "login",
 };
 
-export function rootReducer(lastState: IAppState = INITIAL_STATE, action: Action): IAppState {
+export function rootReducer(lastState: IAppState = INITIAL_STATE, action: Actions): IAppState {
   switch (action.type) {
     case NavbarActions.LOGIN: return {
       ...lastState,
@@ -31,14 +31,15 @@ export function rootReducer(lastState: IAppState = INITIAL_STATE, action: Action
       ...lastState,
       modalState: "resendConfirmation",
     };
-    case UserActions.SIGNIN: return {
+    case UserActionTypes.Login: return {
       ...lastState,
+      currentUser: action.payload,
       loggedIn: true,
     };
-    case ErrorActions.DISPLAY: return {
-      ...lastState,
-      error: null,
-    };
+    // case ErrorActions.DISPLAY: return {
+    //   ...lastState,
+    //   error: null,
+    // };
   }
   return lastState;
 }

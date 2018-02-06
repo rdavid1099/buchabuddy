@@ -3,7 +3,8 @@ import { Component, OnInit } from "@angular/core";
 import { Angular2TokenService } from "angular2-token";
 
 import { IAppState } from "../../store/store.model";
-import { UserActions } from "../../user/user.actions";
+import { IUser } from "../../user/iuser.interface";
+import * as UserActions from "../../user/user.actions";
 import templateString from "./loginModal.component.html";
 
 @Component({
@@ -17,7 +18,6 @@ export class LoginModalComponent implements OnInit {
   constructor(
     private tokenService: Angular2TokenService,
     private ngRedux: NgRedux<IAppState>,
-    private actions: UserActions,
   ) {
     this.tokenService.init();
   }
@@ -34,12 +34,16 @@ export class LoginModalComponent implements OnInit {
       this.user,
     ).subscribe(
       (res) => {
-        console.log(res);
-        this.ngRedux.dispatch(this.actions.signIn());
+        const sanitized = res.json().data;
+        const authUser: IUser = {
+          email: sanitized.uid,
+          id: sanitized.id,
+          username: sanitized.username,
+        };
+        this.ngRedux.dispatch(new UserActions.Login(authUser).dispatch());
       },
       (err) => {
         console.log(err);
-        debugger
       },
     );
   }

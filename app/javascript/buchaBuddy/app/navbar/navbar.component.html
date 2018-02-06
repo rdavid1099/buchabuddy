@@ -24,7 +24,7 @@
       </ul>
       <ul class="navbar-nav my-2 my-lg-0" *ngIf="loggedIn">
         <li class="nav-item">
-          <a class="nav-link sign-in" data-toggle="modal" data-target="#signInModalCenter" (click)="console.log('LOGGING OUT!')">Sign Out</a>
+          <a class="nav-link sign-in" data-toggle="modal" data-target="#signInModalCenter" (click)="console.log('LOGGING OUT!')">{{ currentUser.email }}</a>
         </li>
       </ul>
     </div>

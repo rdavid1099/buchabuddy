@@ -1,16 +1,23 @@
-import { Injectable } from "@angular/core";
 import { Action } from "redux";
 
-@Injectable()
-export class UserActions {
-  public static SIGNIN = "SIGNIN";
-  public static LOGOUT = "LOGOUT";
+import { IUser } from "./iuser.interface";
 
-  public signIn(): Action {
-    return { type: UserActions.SIGNIN };
-  }
+export enum UserActionTypes {
+  Login = "[User] Login",
+  Logout = "[User] Logout",
+}
 
-  public logout(): Action {
-    return { type: UserActions.LOGOUT };
+export class Login implements Action {
+  public readonly type: string = UserActionTypes.Login;
+  constructor(public payload: IUser) { }
+
+  public dispatch() {
+    return {
+      payload: this.payload,
+      type: this.type,
+    };
   }
 }
+
+export type Actions =
+  | Login;

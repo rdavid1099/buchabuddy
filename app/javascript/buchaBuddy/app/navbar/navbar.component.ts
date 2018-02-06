@@ -2,6 +2,7 @@ import { NgRedux } from "@angular-redux/store";
 import { Component } from "@angular/core";
 
 import { IAppState } from "../store/store.model";
+import { IUser } from "../user/iuser.interface";
 import { NavbarActions } from "./api/navbar.actions";
 import templateString from "./navbar.component.html";
 
@@ -12,14 +13,16 @@ import templateString from "./navbar.component.html";
 
 export class NavbarComponent {
   public loggedIn: boolean;
-  private subscription;
+  public currentUser: IUser = null;
 
   constructor(
     private ngRedux: NgRedux<IAppState>,
     private actions: NavbarActions,
   ) {
-    this.subscription = ngRedux.select<boolean>("loggedIn")
+    ngRedux.select<boolean>("loggedIn")
       .subscribe((newLoggedInState) => this.loggedIn = newLoggedInState);
+    ngRedux.select<IUser>("currentUser")
+      .subscribe((newCurrentUserState) => this.currentUser = newCurrentUserState);
   }
 
   public loadLoginModal() {

@@ -19,8 +19,6 @@ import { SignUpLinkComponent } from "./shared/signUpLink.component";
 import { SignInModalComponent } from "./signInModal.component";
 import { SignUpModalComponent } from "./signUpModal.component";
 
-import { UserActions } from "../../user/user.actions";
-
 @NgModule({
   declarations: [
     ForgotPasswordLinkComponent,
@@ -47,7 +45,6 @@ import { UserActions } from "../../user/user.actions";
     CommonModule,
     FormsModule,
   ],
-  providers: [UserActions],
 })
 
 export class SignInModalModule { }
