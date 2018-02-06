@@ -37,7 +37,10 @@ export class LoginModalComponent implements OnInit {
         console.log(res);
         this.ngRedux.dispatch(this.actions.signIn());
       },
-      (err) => console.log(err),
+      (err) => {
+        console.log(err);
+        debugger
+      },
     );
   }
 
