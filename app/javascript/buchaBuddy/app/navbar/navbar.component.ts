@@ -1,5 +1,5 @@
 import { NgRedux } from "@angular-redux/store";
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Angular2TokenService } from "angular2-token";
 
 import { IAppState } from "../store/store.model";
@@ -13,7 +13,7 @@ import templateString from "./navbar.component.html";
   template: templateString,
 })
 
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   public loggedIn: boolean;
   public currentUser: IUser = null;
 
@@ -27,6 +27,22 @@ export class NavbarComponent {
       .subscribe((newLoggedInState) => this.loggedIn = newLoggedInState);
     ngRedux.select<IUser>("currentUser")
       .subscribe((newCurrentUserState) => this.currentUser = newCurrentUserState);
+  }
+
+  public ngOnInit() {
+    if (this.tokenService.userSignedIn()) {
+      this.tokenService.validateToken().subscribe(
+        (res) => {
+          const data: any = this.tokenService.currentUserData;
+          const loggedInUser: IUser = {
+            email: data.email,
+            id: data.id,
+            username: data.username,
+          };
+          this.ngRedux.dispatch(new UserActions.Login(loggedInUser).dispatch());
+        },
+      );
+    }
   }
 
   public loadLoginModal() {
