@@ -1,20 +1,46 @@
 {
   "name": "buchabuddy-1_0",
   "private": true,
+  "scripts": {
+    "build": "./bin/webpack",
+    "start": "./bin/bundle exec foreman start -f Procfile.dev",
+    "rails": "./bin/rails server -p 3000",
+    "sidekiq": "./bin/bundle exec sidekiq -q default -q mailers",
+    "webpack-server": "./bin/webpack-dev-server",
+    "lint": "./node_modules/.bin/tslint -c tslint.json './app/javascript/buchabuddy/**/*.ts'"
+  },
   "dependencies": {
+    "@angular-redux/store": "^7",
     "@angular/common": "^5.2.2",
     "@angular/compiler": "^5.2.2",
     "@angular/core": "^5.2.2",
+    "@angular/forms": "^5.2.2",
+    "@angular/http": "^5.0.0",
     "@angular/platform-browser": "^5.2.2",
     "@angular/platform-browser-dynamic": "^5.2.2",
+    "@angular/router": "^5.0.0",
     "@rails/webpacker": "^3.2.1",
+    "angular2-token": "^0.2.0-beta.14",
+    "bootstrap": "^4.0.0",
+    "caniuse-lite": "^1.0.3",
     "core-js": "^2.5.3",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.12.9",
+    "redux": "^3.5.0",
     "rxjs": "^5.5.6",
     "ts-loader": "^3.3.1",
     "typescript": "^2.6.2",
+    "webpack": "^3.0.0",
     "zone.js": "^0.8.20"
   },
   "devDependencies": {
+    "css-loader": "^0.28.9",
+    "html-loader": "^0.5.5",
+    "resolve-url-loader": "^2.2.1",
+    "sass-loader": "^6.0.6",
+    "to-string-loader": "^1.1.5",
+    "tslint": "^5.9.1",
     "webpack-dev-server": "^2.11.1"
-  }
+  },
+  "version": "1.0.0"
 }

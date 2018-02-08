@@ -6,6 +6,12 @@ const { resolve } = require('path')
 
 environment.loaders.append('typescript', typescript)
 
+environment.loaders.append('html', {
+  test: /\.html$/,
+  exclude: /node_modules/,
+  loaders: ['html-loader']
+})
+
 environment.plugins.append('ContextReplacement',
   new webpack.ContextReplacementPlugin(
     /angular(\\|\/)core(\\|\/)(@angular|esm5)/,

@@ -1,0 +1,3 @@
+web: ./bin/bundle exec Rails s
+webpacker: ./bin/webpack-dev-server
+sidekiq: ./bin/bundle exec sidekiq -q default -q mailers
