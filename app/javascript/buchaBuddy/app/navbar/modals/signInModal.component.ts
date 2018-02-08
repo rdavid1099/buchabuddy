@@ -1,5 +1,6 @@
 import { NgRedux } from "@angular-redux/store";
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import * as $ from "jquery";
 
 import { IAppState } from "../../store/store.model";
 import { NavbarActions } from "../api/navbar.actions";
@@ -10,7 +11,7 @@ import templateString from "./signInModal.component.html";
   template: templateString,
 })
 
-export class SignInModalComponent {
+export class SignInModalComponent implements OnInit {
   public modalState: string;
 
   public content: object = {
@@ -48,6 +49,13 @@ export class SignInModalComponent {
   ) {
     this.subscription = ngRedux.select<string>("modalState")
       .subscribe((newModalState) => this.modalState = newModalState);
+  }
+
+  public ngOnInit() {
+    $("#signInModalCenter").on("hidden.bs.modal", (e) => {
+      this.ngRedux.dispatch(this.actions.signUp());
+      this.ngRedux.dispatch(this.actions.login());
+    });
   }
 
   public ngOnDestroy() {

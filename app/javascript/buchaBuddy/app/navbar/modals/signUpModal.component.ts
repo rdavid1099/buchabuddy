@@ -1,6 +1,12 @@
+import { NgRedux } from "@angular-redux/store";
 import { Component, OnInit } from "@angular/core";
 import { Angular2TokenService } from "angular2-token";
+import * as $ from "jquery";
 
+import { IAppState } from "../../store/store.model";
+import { IUser } from "../../user/iuser.interface";
+import * as UserActions from "../../user/user.actions";
+import { NavbarActions } from "../api/navbar.actions";
 import { IUserLogin } from "./iuserlogin.interface";
 import templateString from "./signUpModal.component.html";
 
@@ -14,6 +20,8 @@ export class SignUpModalComponent implements OnInit {
 
   constructor(
     private tokenService: Angular2TokenService,
+    private ngRedux: NgRedux<IAppState>,
+    private actions: NavbarActions,
   ) {
     this.tokenService.init();
   }
@@ -25,12 +33,36 @@ export class SignUpModalComponent implements OnInit {
       passwordConfirmation: "",
       username: "",
     };
+
+    $("#signInModalCenter").on("hidden.bs.modal", (e) => {
+      this.ngRedux.dispatch(this.actions.login());
+    });
   }
 
   public submit() {
     this.tokenService.registerAccount(this.sanitizedParams()).subscribe(
-        (res) =>      console.log(res),
-        (error) =>    console.log(error),
+        (res) => {
+          this.tokenService.signIn(
+            this.sanitizedParams(),
+          ).subscribe(
+            (loginRes) => {
+              const sanitized = loginRes.json().data;
+              const authUser: IUser = {
+                email: sanitized.uid,
+                id: sanitized.id,
+                username: sanitized.username,
+              };
+              this.ngRedux.dispatch(new UserActions.Login(authUser).dispatch());
+              $("#signInModalCenter").modal("hide");
+            },
+            (err) => {
+              console.log(err);
+            },
+          );
+        },
+        (error) => {
+          console.log(error);
+        },
     );
   }
 

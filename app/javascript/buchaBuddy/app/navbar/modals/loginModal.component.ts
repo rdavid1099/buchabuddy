@@ -1,10 +1,12 @@
 import { NgRedux } from "@angular-redux/store";
 import { Component, OnInit } from "@angular/core";
 import { Angular2TokenService } from "angular2-token";
+import * as $ from "jquery";
 
 import { IAppState } from "../../store/store.model";
 import { IUser } from "../../user/iuser.interface";
 import * as UserActions from "../../user/user.actions";
+import { NavbarActions } from "../api/navbar.actions";
 import templateString from "./loginModal.component.html";
 
 @Component({
@@ -18,15 +20,16 @@ export class LoginModalComponent implements OnInit {
   constructor(
     private tokenService: Angular2TokenService,
     private ngRedux: NgRedux<IAppState>,
+    private actions: NavbarActions,
   ) {
     this.tokenService.init();
+    this.resetUser();
   }
 
   public ngOnInit() {
-    this.user = {
-      email: "",
-      password: "",
-    };
+    $("#signInModalCenter").on("hidden.bs.modal", (e) => {
+      this.ngRedux.dispatch(this.actions.signUp());
+    });
   }
 
   public submit() {
@@ -41,6 +44,7 @@ export class LoginModalComponent implements OnInit {
           username: sanitized.username,
         };
         this.ngRedux.dispatch(new UserActions.Login(authUser).dispatch());
+        $("#signInModalCenter").modal("hide");
       },
       (err) => {
         console.log(err);
@@ -49,6 +53,13 @@ export class LoginModalComponent implements OnInit {
   }
 
   public ngOnDestroy() {
-    this.user = null;
+    this.resetUser();
+  }
+
+  private resetUser() {
+    this.user = {
+      email: "",
+      password: "",
+    };
   }
 }

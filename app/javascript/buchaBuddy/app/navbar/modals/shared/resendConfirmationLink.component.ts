@@ -6,9 +6,10 @@ import { NavbarActions } from "../../api/navbar.actions";
 
 @Component({
   selector: "resend-confirmation-link",
-  template: "<small class=\"form-text style-link col-sm-5\" (click)=\"loadResendConfirmationModal()\">" +
-              "Email confirmation" +
-            "</small>",
+  // template: "<small class=\"form-text style-link col-sm-5\" (click)=\"loadResendConfirmationModal()\">" +
+  //             "Email confirmation" +
+  //           "</small>",
+  template: "",
 })
 
 export class ResendConfirmationLinkComponent {
