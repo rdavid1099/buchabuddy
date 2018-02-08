@@ -12,6 +12,7 @@ import * as UserActions from "./user/user.actions";
   template: templateString,
 })
 export class AppComponent implements OnInit {
+  public appLoaded: boolean = false;
   constructor(
     private tokenService: Angular2TokenService,
     private ngRedux: NgRedux<IAppState>,
@@ -30,6 +31,7 @@ export class AppComponent implements OnInit {
             username: data.username,
           };
           this.ngRedux.dispatch(new UserActions.Login(loggedInUser).dispatch());
+          this.appLoaded = true;
         },
       );
     }
