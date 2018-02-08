@@ -1,0 +1,23 @@
+<div class="modal fade" id="signInModalCenter" tabindex="-1" role="dialog" aria-labelledby="signInModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="headline-bar"></div>
+      <div class="modal-header">
+        <h5 class="modal-title" id="signInModalLongTitle">{{ content[modalState].header }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="signInModalBody">
+        <login *ngIf="modalState === 'login'"></login>
+        <sign-up *ngIf="modalState === 'signUp'"></sign-up>
+        <forgot-password *ngIf="modalState === 'forgotPassword'"></forgot-password>
+        <resend-confirmation *ngIf="modalState === 'resendConfirmation'"></resend-confirmation>
+      </div>
+      <div class="sign-in-footer" id="signInModalFooter">
+        <sign-up-link *ngIf="content[modalState].footers.signUpLink"></sign-up-link>
+        <login-link *ngIf="content[modalState].footers.loginLink"></login-link>
+      </div>
+    </div>
+  </div>
+</div>

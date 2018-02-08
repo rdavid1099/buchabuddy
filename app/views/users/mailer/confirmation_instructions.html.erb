@@ -31,7 +31,7 @@
 
         <p>You can confirm your account email by clicking the button below.</p>
         <p>
-          <%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token),
+          <%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token, redirect_url: root_url),
                                 style: "color: #fff;
                                 background-color: #31893d;
                                 border-color: #31893d;

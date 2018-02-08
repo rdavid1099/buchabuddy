@@ -1,5 +1,5 @@
 Rails.application.configure do
-    config.webpacker.check_yarn_integrity = true  # Settings specified here will take precedence over those in config/application.rb.
+  config.webpacker.check_yarn_integrity = true  # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -31,8 +31,12 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  # Default URL options for the Devise mailer
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # Configuration to work with `mailcatcher` gem
+  # Go to `http://localhost:1080` to preview mail sent to `smtp://localhost:1025`
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
 
   # Directory for previewing emails sent on development
   config.action_mailer.preview_path = "#{Rails.root}/lib/mailer_prvw"
