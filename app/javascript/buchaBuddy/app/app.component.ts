@@ -11,13 +11,18 @@ import * as UserActions from "./user/user.actions";
   selector: "buchabuddy",
   template: templateString,
 })
+
 export class AppComponent implements OnInit {
   public appLoaded: boolean = false;
+  public modalState: string = null;
+
   constructor(
     private tokenService: Angular2TokenService,
     private ngRedux: NgRedux<IAppState>,
   ) {
     this.tokenService.init();
+    ngRedux.select<string>("modalState")
+      .subscribe((newModalState) => this.modalState = newModalState);
   }
 
   public ngOnInit() {

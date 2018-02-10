@@ -10,7 +10,7 @@ export const INITIAL_STATE: IAppState = {
   currentUser: null,
   loggedIn: false,
   message: null,
-  modalState: "login",
+  modalState: null,
 };
 
 type Actions =
@@ -34,6 +34,10 @@ export function rootReducer(lastState: IAppState = INITIAL_STATE, action): IAppS
     case NavbarActions.RESEND_CONFIRMATION: return {
       ...lastState,
       modalState: "resendConfirmation",
+    };
+    case NavbarActions.UNMOUNT_MODAL: return {
+      ...lastState,
+      modalState: null,
     };
     case UserActionTypes.Login: return {
       ...lastState,

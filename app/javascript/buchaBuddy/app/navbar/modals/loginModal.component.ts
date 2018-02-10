@@ -30,7 +30,7 @@ export class LoginModalComponent implements OnInit {
 
   public ngOnInit() {
     $("#signInModalCenter").on("hidden.bs.modal", (e) => {
-      this.ngRedux.dispatch(this.actions.signUp());
+      this.ngRedux.dispatch(this.actions.unmountModal());
     });
   }
 
@@ -56,7 +56,6 @@ export class LoginModalComponent implements OnInit {
           type: "error",
         };
         this.ngRedux.dispatch(new FlashMessageActions.Load(message).dispatch());
-        $("#signInModalCenter").modal("hide");
       },
     );
   }
