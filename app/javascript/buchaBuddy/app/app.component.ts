@@ -34,6 +34,8 @@ export class AppComponent implements OnInit {
           this.appLoaded = true;
         },
       );
+    } else {
+      this.appLoaded = true;
     }
   }
 }

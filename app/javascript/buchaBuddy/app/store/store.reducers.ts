@@ -2,18 +2,22 @@ import { Action } from "redux";
 
 import { IAppState } from "./store.model";
 
-import { ErrorActions } from "../error/error.actions";
+import { FlashMessageActions, FlashMessageActionTypes } from "../flashMessage/api/flashMessage.actions";
 import { NavbarActions } from "../navbar/api/navbar.actions";
-import { Actions, UserActionTypes } from "../user/user.actions";
+import { UserActions, UserActionTypes } from "../user/user.actions";
 
 export const INITIAL_STATE: IAppState = {
   currentUser: null,
-  error: null,
   loggedIn: false,
+  message: null,
   modalState: "login",
 };
 
-export function rootReducer(lastState: IAppState = INITIAL_STATE, action: Actions): IAppState {
+type Actions =
+  | UserActions
+  | FlashMessageActions;
+
+export function rootReducer(lastState: IAppState = INITIAL_STATE, action): IAppState {
   switch (action.type) {
     case NavbarActions.LOGIN: return {
       ...lastState,
@@ -41,11 +45,10 @@ export function rootReducer(lastState: IAppState = INITIAL_STATE, action: Action
       currentUser: null,
       loggedIn: false,
     };
-
-    // case ErrorActions.DISPLAY: return {
-    //   ...lastState,
-    //   error: null,
-    // };
+    case FlashMessageActionTypes.Load: return {
+      ...lastState,
+      message: action.payload,
+    };
   }
   return lastState;
 }

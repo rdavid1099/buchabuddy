@@ -3,6 +3,8 @@ import { Component, OnInit } from "@angular/core";
 import { Angular2TokenService } from "angular2-token";
 import * as $ from "jquery";
 
+import * as FlashMessageActions from "../../flashMessage/api/flashMessage.actions";
+import { IMessage } from "../../flashMessage/api/imessage.interface";
 import { IAppState } from "../../store/store.model";
 import { IUser } from "../../user/iuser.interface";
 import * as UserActions from "../../user/user.actions";
@@ -47,7 +49,13 @@ export class LoginModalComponent implements OnInit {
         $("#signInModalCenter").modal("hide");
       },
       (err) => {
-        console.log(err);
+        const message: IMessage = {
+          messages: err.json().errors,
+          status: err.status.toString(),
+          statusText: err.statusText,
+        };
+        this.ngRedux.dispatch(new FlashMessageActions.Load(message).dispatch());
+        $("#signInModalCenter").modal("hide");
       },
     );
   }
