@@ -53,6 +53,7 @@ export class LoginModalComponent implements OnInit {
           messages: err.json().errors,
           status: err.status.toString(),
           statusText: err.statusText,
+          type: "error",
         };
         this.ngRedux.dispatch(new FlashMessageActions.Load(message).dispatch());
         $("#signInModalCenter").modal("hide");
