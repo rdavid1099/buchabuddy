@@ -17,7 +17,11 @@ import templateString from "./loginModal.component.html";
 })
 
 export class LoginModalComponent implements OnInit {
-  public user;
+  public dataDisable: boolean;
+  public user: {
+    email: string;
+    password: string;
+  };
 
   constructor(
     private tokenService: Angular2TokenService,
@@ -35,6 +39,7 @@ export class LoginModalComponent implements OnInit {
   }
 
   public submit() {
+    this.dataDisable = true;
     this.tokenService.signIn(
       this.user,
     ).subscribe(
@@ -55,6 +60,7 @@ export class LoginModalComponent implements OnInit {
           statusText: err.statusText,
           type: "error",
         };
+        this.resetUser();
         this.ngRedux.dispatch(new FlashMessageActions.Load(message).dispatch());
       },
     );
@@ -65,6 +71,7 @@ export class LoginModalComponent implements OnInit {
   }
 
   private resetUser() {
+    this.dataDisable = false;
     this.user = {
       email: "",
       password: "",

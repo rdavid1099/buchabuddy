@@ -37,6 +37,7 @@ export function rootReducer(lastState: IAppState = INITIAL_STATE, action): IAppS
     };
     case NavbarActions.UNMOUNT_MODAL: return {
       ...lastState,
+      message: null,
       modalState: null,
     };
     case UserActionTypes.Login: return {
