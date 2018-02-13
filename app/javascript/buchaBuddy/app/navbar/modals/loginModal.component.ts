@@ -21,6 +21,7 @@ export class LoginModalComponent implements OnInit {
   public user: {
     email: string;
     password: string;
+    backendErr: string;
   };
 
   constructor(
@@ -60,7 +61,7 @@ export class LoginModalComponent implements OnInit {
           statusText: err.statusText,
           type: "error",
         };
-        this.resetUser();
+        this.resetUser(err.status.toString());
         this.ngRedux.dispatch(new FlashMessageActions.Load(message).dispatch());
       },
     );
@@ -70,9 +71,10 @@ export class LoginModalComponent implements OnInit {
     this.resetUser();
   }
 
-  private resetUser() {
+  private resetUser(backendErr: string = null) {
     this.dataDisable = false;
     this.user = {
+      backendErr,
       email: "",
       password: "",
     };
