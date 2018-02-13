@@ -11,7 +11,7 @@
            required
            validatePattern="\s">
      <div class="errors invalid-feedback" *ngIf="username.invalid && (username.dirty || username.touched)">
-       <div *ngIf="username.errors.required">Required</div>
+       <div *ngIf="username.errors.required && !this.user.backendErr">Required</div>
        <div *ngIf="username.errors.validatePattern && !username.errors.required">Username cannot contain any spaces</div>
      </div>
   </div>
@@ -27,7 +27,7 @@
            required
            validateEmail>
      <div class="errors invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
-       <div *ngIf="email.errors.required">Required</div>
+       <div *ngIf="email.errors.required && !this.user.backendErr">Required</div>
        <div *ngIf="email.errors.validateEmail && !email.errors.required">Invalid email address</div>
      </div>
   </div>
@@ -47,7 +47,7 @@
            validateLowercaseLetter
            validateNumber>
      <div class="errors invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">
-       <div *ngIf="password.errors.required">Required</div>
+       <div *ngIf="password.errors.required && !this.user.backendErr">Required</div>
      </div>
     <small id="password-reqs-list" class="form-text">
       <ul>
@@ -71,7 +71,7 @@
            required
            [validateEqual]="password">
    <div class="errors invalid-feedback" *ngIf="pwConfirm.invalid && (pwConfirm.dirty || pwConfirm.touched)">
-     <div *ngIf="pwConfirm.errors.required">Required</div>
+     <div *ngIf="pwConfirm.errors.required && !this.user.backendErr">Required</div>
      <div *ngIf="pwConfirm.errors.validateEqual && !pwConfirm.errors.required">Passwords do not match</div>
    </div>
   </div>
