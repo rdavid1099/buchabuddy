@@ -34,6 +34,7 @@ export class LoginModalComponent implements OnInit {
   }
 
   public ngOnInit() {
+    this.dataDisable = false;
     $("#signInModalCenter").on("hidden.bs.modal", (e) => {
       this.ngRedux.dispatch(this.actions.unmountModal());
     });
@@ -55,6 +56,7 @@ export class LoginModalComponent implements OnInit {
         $("#signInModalCenter").modal("hide");
       },
       (err) => {
+        this.dataDisable = false;
         const message: IMessage = {
           messages: err.json().errors,
           status: err.status.toString(),
@@ -72,7 +74,6 @@ export class LoginModalComponent implements OnInit {
   }
 
   private resetUser(backendErr: string = null) {
-    this.dataDisable = false;
     this.user = {
       backendErr,
       email: "",

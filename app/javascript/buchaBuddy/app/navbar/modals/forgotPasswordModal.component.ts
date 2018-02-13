@@ -15,6 +15,7 @@ import templateString from "./forgotPasswordModal.component.html";
 })
 
 export class ForgotPasswordModalComponent implements OnInit {
+  public dataDisable: boolean;
   public user: {
     backendErr: string;
     email: string;
@@ -31,6 +32,7 @@ export class ForgotPasswordModalComponent implements OnInit {
   }
 
   public ngOnInit() {
+    this.dataDisable = false;
     this.confirmFlashMessage = false;
     this.resetUser();
     $("#signInModalCenter").on("hidden.bs.modal", (e) => {
@@ -50,6 +52,7 @@ export class ForgotPasswordModalComponent implements OnInit {
   }
 
   public submit() {
+    this.dataDisable = true;
     this.tokenService.resetPassword({
       email: this.user.email,
     }).subscribe(
@@ -58,6 +61,7 @@ export class ForgotPasswordModalComponent implements OnInit {
         $("#signInModalCenter").modal("hide");
       },
       (err) => {
+        this.dataDisable = false;
         const message: IMessage = {
           messages: err.json().errors,
           status: err.status.toString(),

@@ -78,12 +78,11 @@
   <div class="actions"
        [ngClass]="{'disable-pointer-events': !signUpForm.valid}">
     <input class="btn btn-primary submit"
-           [ngClass]="{'disabled': !signUpForm.valid}"
+           [ngClass]="{'disabled': !signUpForm.valid || dataDisable}"
            id="submit"
            type="submit"
            name="commit"
            value="Register"
-           data-disable-with="Register"
            (click)="submit()">
   </div>
 </form>

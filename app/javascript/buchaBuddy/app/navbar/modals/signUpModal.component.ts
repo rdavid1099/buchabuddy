@@ -18,6 +18,7 @@ import templateString from "./signUpModal.component.html";
 })
 
 export class SignUpModalComponent implements OnInit {
+  public dataDisable: boolean;
   public user: IUserLogin;
 
   private confirmFlashMessage: boolean;
@@ -31,6 +32,7 @@ export class SignUpModalComponent implements OnInit {
   }
 
   public ngOnInit() {
+    this.dataDisable = false;
     this.confirmFlashMessage = false;
     this.resetUser();
     $("#signInModalCenter").on("hidden.bs.modal", (e) => {
@@ -50,12 +52,14 @@ export class SignUpModalComponent implements OnInit {
   }
 
   public submit() {
+    this.dataDisable = true;
     this.tokenService.registerAccount(this.sanitizedParams()).subscribe(
         (res) => {
           this.confirmFlashMessage = true;
           $("#signInModalCenter").modal("hide");
         },
         (err) => {
+          this.dataDisable = false;
           const message: IMessage = {
             messages: err.json().errors.full_messages,
             status: err.status.toString(),
