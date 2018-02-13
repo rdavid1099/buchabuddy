@@ -20,7 +20,7 @@ import templateString from "./signUpModal.component.html";
 export class SignUpModalComponent implements OnInit {
   public user: IUserLogin;
 
-  private confirmFlashMessage: boolean = false;
+  private confirmFlashMessage: boolean;
 
   constructor(
     private tokenService: Angular2TokenService,
@@ -31,6 +31,7 @@ export class SignUpModalComponent implements OnInit {
   }
 
   public ngOnInit() {
+    this.confirmFlashMessage = false;
     this.resetUser();
     $("#signInModalCenter").on("hidden.bs.modal", (e) => {
       this.ngRedux.dispatch(this.actions.unmountModal());
