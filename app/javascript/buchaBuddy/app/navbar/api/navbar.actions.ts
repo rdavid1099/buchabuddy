@@ -7,6 +7,7 @@ export class NavbarActions {
   public static SIGNUP = "SIGNUP";
   public static FORGOT_PASSWORD = "FORGOT_PASSWORD";
   public static RESEND_CONFIRMATION = "RESEND_CONFIRMATION";
+  public static UNMOUNT_MODAL = "UNMOUNT_MODAL";
 
   public login(): Action {
     return { type: NavbarActions.LOGIN };
@@ -22,5 +23,9 @@ export class NavbarActions {
 
   public resendConfirmation(): Action {
     return { type: NavbarActions.RESEND_CONFIRMATION };
+  }
+
+  public unmountModal(): Action {
+    return { type: NavbarActions.UNMOUNT_MODAL };
   }
 }

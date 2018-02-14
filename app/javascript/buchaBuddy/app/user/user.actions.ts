@@ -30,6 +30,6 @@ export class Logout implements Action {
   }
 }
 
-export type Actions =
+export type UserActions =
   | Login
   | Logout;

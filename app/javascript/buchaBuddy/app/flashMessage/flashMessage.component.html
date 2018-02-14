@@ -1,0 +1,6 @@
+<div class="alert alert-{{flashMessage.type}} flash-message" *ngIf="flashMessage" (click)="unmountFlashMessage()">
+  {{flashMessage.messages.join(", ")}}
+  <div class="close-flash">
+    X
+  </div>
+</div>

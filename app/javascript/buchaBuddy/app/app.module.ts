@@ -7,6 +7,7 @@ import { RouterModule } from "@angular/router";
 import { Angular2TokenService } from "angular2-token";
 
 import { AppComponent } from "./app.component";
+import { FlashMessageModule } from "./flashMessage/flashMessage.module";
 import { NavbarModule } from "./navbar/navbar.module";
 import { StoreModule } from "./store/store.module";
 
@@ -16,6 +17,7 @@ import { StoreModule } from "./store/store.module";
   imports: [
     BrowserModule,
     CommonModule,
+    FlashMessageModule,
     HttpModule,
     NavbarModule,
     NgReduxModule,
