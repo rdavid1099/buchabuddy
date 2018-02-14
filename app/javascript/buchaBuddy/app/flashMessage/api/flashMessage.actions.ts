@@ -6,7 +6,7 @@ import { IMessage } from "./imessage.interface";
 
 export enum FlashMessageActionTypes {
   Load = "[Message] Load",
-  Unload = "[Message] Unload",
+  Unmount = "[Message] Unmount",
 }
 
 export class Load implements Action {
@@ -21,8 +21,8 @@ export class Load implements Action {
   }
 }
 
-export class Unload implements Action {
-  public readonly type: string = FlashMessageActionTypes.Unload;
+export class Unmount implements Action {
+  public readonly type: string = FlashMessageActionTypes.Unmount;
   constructor(public payload?: IMessage) { }
 
   public dispatch() {
@@ -35,4 +35,4 @@ export class Unload implements Action {
 
 export type FlashMessageActions =
   | Load
-  | Unload;
+  | Unmount;

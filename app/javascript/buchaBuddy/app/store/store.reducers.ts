@@ -54,6 +54,10 @@ export function rootReducer(lastState: IAppState = INITIAL_STATE, action): IAppS
       ...lastState,
       message: action.payload,
     };
+    case FlashMessageActionTypes.Unmount: return {
+      ...lastState,
+      message: action.payload,
+    };
   }
   return lastState;
 }

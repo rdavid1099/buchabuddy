@@ -2,7 +2,7 @@ import { NgRedux } from "@angular-redux/store";
 import { Component } from "@angular/core";
 
 import { IAppState } from "../store/store.model";
-import * as MessageActions from "./api/flashMessage.actions";
+import * as FlashMessageActions from "./api/flashMessage.actions";
 import { IMessage } from "./api/imessage.interface";
 import templateString from "./flashMessage.component.html";
 
@@ -19,5 +19,9 @@ export class FlashMessageComponent {
   ) {
     ngRedux.select<IMessage>("message")
       .subscribe((newMessageState) => this.flashMessage = newMessageState);
+  }
+
+  public unmountFlashMessage() {
+    this.ngRedux.dispatch(new FlashMessageActions.Unmount().dispatch());
   }
 }
