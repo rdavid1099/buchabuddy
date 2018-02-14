@@ -1,4 +1,4 @@
-<div class="modal fade" id="signInModalCenter" tabindex="-1" role="dialog" aria-labelledby="signInModalCenterTitle" aria-hidden="true">
+<div *ngIf="modalState" class="modal fade" id="signInModalCenter" tabindex="-1" role="dialog" aria-labelledby="signInModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="headline-bar"></div>
@@ -9,6 +9,7 @@
         </button>
       </div>
       <div class="modal-body" id="signInModalBody">
+        <flash-message></flash-message>
         <login *ngIf="modalState === 'login'"></login>
         <sign-up *ngIf="modalState === 'signUp'"></sign-up>
         <forgot-password *ngIf="modalState === 'forgotPassword'"></forgot-password>

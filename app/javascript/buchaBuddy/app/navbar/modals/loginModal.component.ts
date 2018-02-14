@@ -3,6 +3,8 @@ import { Component, OnInit } from "@angular/core";
 import { Angular2TokenService } from "angular2-token";
 import * as $ from "jquery";
 
+import * as FlashMessageActions from "../../flashMessage/api/flashMessage.actions";
+import { IMessage } from "../../flashMessage/api/imessage.interface";
 import { IAppState } from "../../store/store.model";
 import { IUser } from "../../user/iuser.interface";
 import * as UserActions from "../../user/user.actions";
@@ -15,7 +17,12 @@ import templateString from "./loginModal.component.html";
 })
 
 export class LoginModalComponent implements OnInit {
-  public user;
+  public dataDisable: boolean;
+  public user: {
+    email: string;
+    password: string;
+    backendErr: string;
+  };
 
   constructor(
     private tokenService: Angular2TokenService,
@@ -27,12 +34,14 @@ export class LoginModalComponent implements OnInit {
   }
 
   public ngOnInit() {
+    this.dataDisable = false;
     $("#signInModalCenter").on("hidden.bs.modal", (e) => {
-      this.ngRedux.dispatch(this.actions.signUp());
+      this.ngRedux.dispatch(this.actions.unmountModal());
     });
   }
 
   public submit() {
+    this.dataDisable = true;
     this.tokenService.signIn(
       this.user,
     ).subscribe(
@@ -47,7 +56,15 @@ export class LoginModalComponent implements OnInit {
         $("#signInModalCenter").modal("hide");
       },
       (err) => {
-        console.log(err);
+        this.dataDisable = false;
+        const message: IMessage = {
+          messages: err.json().errors,
+          status: err.status.toString(),
+          statusText: err.statusText,
+          type: "error",
+        };
+        this.resetUser(err.status.toString());
+        this.ngRedux.dispatch(new FlashMessageActions.Load(message).dispatch());
       },
     );
   }
@@ -56,8 +73,9 @@ export class LoginModalComponent implements OnInit {
     this.resetUser();
   }
 
-  private resetUser() {
+  private resetUser(backendErr: string = null) {
     this.user = {
+      backendErr,
       email: "",
       password: "",
     };

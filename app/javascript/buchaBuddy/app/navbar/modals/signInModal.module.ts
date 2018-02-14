@@ -2,6 +2,8 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 
+import { FlashMessageModule } from "../../flashMessage/flashMessage.module";
+
 import { LoadingIconComponent } from "../../components/loadingIcon.component";
 import { ValidateEmail } from "../../directives/validations/validateEmail.directive";
 import { ValidateEqual } from "../../directives/validations/validateEqual.directive";
@@ -44,6 +46,7 @@ import { SignUpModalComponent } from "./signUpModal.component";
   imports: [
     CommonModule,
     FormsModule,
+    FlashMessageModule,
   ],
 })
 

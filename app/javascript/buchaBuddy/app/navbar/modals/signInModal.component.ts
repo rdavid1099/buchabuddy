@@ -53,8 +53,7 @@ export class SignInModalComponent implements OnInit {
 
   public ngOnInit() {
     $("#signInModalCenter").on("hidden.bs.modal", (e) => {
-      this.ngRedux.dispatch(this.actions.signUp());
-      this.ngRedux.dispatch(this.actions.login());
+      this.ngRedux.dispatch(this.actions.unmountModal());
     });
   }
 
