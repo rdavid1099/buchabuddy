@@ -1,6 +1,8 @@
 language: ruby
 before_install:
   - gem update --system
+services:
+  - postgresql
 rvm:
   - 2.5.0
 cache:
@@ -14,6 +16,12 @@ install:
   - node -v
   - npm i -g yarn
   - yarn
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database buchabuddy_test;' -U postgres
 script:
   - yarn lint
-  - rspec
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec
