@@ -1,6 +1,8 @@
 language: ruby
 before_install:
   - gem update --system
+services:
+  - postgresql
 rvm:
   - 2.5.0
 cache:
