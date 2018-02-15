@@ -1,6 +1,7 @@
 import { NgRedux } from "@angular-redux/store";
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Angular2TokenService } from "angular2-token";
+import * as $ from "jquery";
 
 import { IAppState } from "../store/store.model";
 import { IUser } from "../user/iuser.interface";
@@ -13,7 +14,8 @@ import templateString from "./navbar.component.html";
   template: templateString,
 })
 
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+  public dropdownActive: boolean;
   public loggedIn: boolean;
   public currentUser: IUser = null;
 
@@ -27,6 +29,12 @@ export class NavbarComponent {
       .subscribe((newLoggedInState) => this.loggedIn = newLoggedInState);
     ngRedux.select<IUser>("currentUser")
       .subscribe((newCurrentUserState) => this.currentUser = newCurrentUserState);
+  }
+
+  public ngOnInit() {
+    this.dropdownActive = false;
+    $("#user-dropdown").on("show.bs.dropdown", () => this.dropdownActive = true);
+    $("#user-dropdown").on("hide.bs.dropdown", () => this.dropdownActive = false);
   }
 
   public loadLoginModal() {
