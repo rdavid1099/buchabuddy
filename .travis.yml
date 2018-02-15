@@ -19,7 +19,7 @@ install:
 services:
   - postgresql
 before_script:
-  - psql -c 'create database buchabuddy-1_0_test;' -U postgres
+  - psql -c 'create database buchabuddy_test;' -U postgres
 script:
   - yarn lint
   - RAILS_ENV=test bundle exec rake db:migrate --trace
