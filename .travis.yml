@@ -16,4 +16,4 @@ install:
   - yarn
 script:
   - yarn lint
-  - rspec
+  - bundle exec rspec
