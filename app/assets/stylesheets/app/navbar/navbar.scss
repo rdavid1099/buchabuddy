@@ -1,8 +1,24 @@
 @import "../../shared/color_scheme";
 
 #navbar {
+  padding-bottom: 0px;
+  padding-top: 0px;
   background-color: $primary-color;
-  .sign-in:hover {
-    cursor: pointer;
+  .sign-in, .user-ctrl, .dropdown-item {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .nav-item.dropdown, .navbar-nav.my-2.my-lg-0.not-logged-in {
+    padding: 0.3vw;
+    &.show {
+      background-color: $primary-dark;
+    }
+
+    .dropdown-menu {
+      margin-top: 0px;
+      border-radius: 0px;
+    }
   }
 }

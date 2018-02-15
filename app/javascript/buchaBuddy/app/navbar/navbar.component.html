@@ -14,7 +14,7 @@
         </li>
       </ul>
 
-      <ul class="navbar-nav my-2 my-lg-0" *ngIf="!loggedIn">
+      <ul class="navbar-nav my-2 my-lg-0 not-logged-in" *ngIf="!loggedIn">
         <li class="nav-item">
           <a class="nav-link sign-in" data-toggle="modal" data-target="#signInModalCenter" (click)="loadLoginModal()">Sign In</a>
         </li>
@@ -22,9 +22,16 @@
           <a class="nav-link sign-in" data-toggle="modal" data-target="#signInModalCenter" (click)="loadSignUpModal()">Create Account</a>
         </li>
       </ul>
-      <ul class="navbar-nav my-2 my-lg-0" *ngIf="loggedIn">
-        <li class="nav-item sign-in">
-          <a class="nav-link" (click)="logout()">{{ currentUser && currentUser.username ? currentUser.username : currentUser.email }}</a>
+      <ul class="navbar-nav my-2 my-lg-0"
+      [ngClass]="{'dropdown-active': dropdownActive}"
+      *ngIf="loggedIn">
+        <li class="nav-item dropdown" id="user-dropdown">
+          <a class="nav-link dropdown-toggle user-ctrl" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ currentUser && currentUser.username ? currentUser.username : currentUser.email }}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" (click)="logout()">Logout</a>
+          </div>
         </li>
       </ul>
     </div>
