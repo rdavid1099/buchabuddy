@@ -20,7 +20,7 @@ gem 'foreman'
 # gem 'omniauth'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'sidekiq'
-# gem 'capistrano-rails', group: :development
+gem 'capistrano-rails', group: :development
 
 gem 'bootstrap', '~> 4.0.0.beta3'
 
