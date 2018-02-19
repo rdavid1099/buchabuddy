@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: buchabuddy-1_0_production
-  username: buchabuddy-1_0
-  password: <%= ENV['BUCHABUDDY-1_0_DATABASE_PASSWORD'] %>
+  database: buchabuddy_production
+  username: deploy
+  password: <%= ENV['PROD_DATABASE_PASSWORD'] %>
