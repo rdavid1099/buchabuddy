@@ -4,6 +4,9 @@
 **/.DS_Store
 **/._.DS_Store
 
+# Ignore secrets
+.secrets
+
 # Ignore bundler config.
 /.bundle
 
