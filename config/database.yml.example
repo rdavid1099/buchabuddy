@@ -79,10 +79,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  adapter: postgresql
-  host: 127.0.0.1
+  <<: *default
   database: buchabuddy_production
   username: deploy
-  password: "%m/+v$c6j12n~=e30aG4w5t!@"
-  encoding: unicode
-  pool: 5
+  password: <%= ENV['PROD_DATABASE_PASSWORD'] %>

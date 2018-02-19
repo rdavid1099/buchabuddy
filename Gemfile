@@ -15,12 +15,16 @@ gem 'webpacker'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
-gem 'devise_token_auth'
+gem 'devise_token_auth', git: 'https://github.com/lynndylanhurley/devise_token_auth.git'
 gem 'foreman'
 # gem 'omniauth'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'sidekiq'
-# gem 'capistrano-rails', group: :development
+
+gem 'capistrano', '~> 3.7', '>= 3.7.1'
+gem 'capistrano-rails', '~> 1.2', group: :development
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rvm'
 
 gem 'bootstrap', '~> 4.0.0.beta3'
 
