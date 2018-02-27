@@ -54,20 +54,19 @@ Rails.application.configure do
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
 
-  config.action_mailer.default_url_options = { host: 'buchabuddy.com' }
+  config.action_mailer.default_url_options = { host: '159.89.149.249' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_caching = false
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 465,
-    domain: "buchabuddy.com",
-    authentication: "plain",
-    enable_starttls_auto: true,
-    openssl_verify_mode: 'none',
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'buchabuddy.com',
+    user_name:            ENV["GMAIL_USERNAME"],
+    password:             ENV["GMAIL_PASSWORD"],
+    authentication:       'plain',
+    enable_starttls_auto: true
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
