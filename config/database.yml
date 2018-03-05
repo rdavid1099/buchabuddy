@@ -83,6 +83,6 @@ production:
   host: 127.0.0.1
   database: buchabuddy_production
   username: deploy
-  password: "%m/+v$c6j12n~=e30aG4w5t!@"
+  password: <%= ENV['PROD_DATABASE_PASSWORD'] %>
   encoding: unicode
   pool: 5
