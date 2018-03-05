@@ -42,13 +42,13 @@ export class NavbarComponent implements OnInit {
   }
 
   public loadSignUpModal() {
-    this.ngRedux.dispatch(this.actions.signUp());
+    // this.ngRedux.dispatch(this.actions.signUp());
+    this.ngRedux.dispatch(this.actions.login());
   }
 
   public logout() {
     this.tokenService.signOut().subscribe(
       (res) => this.ngRedux.dispatch(new UserActions.Logout().dispatch()),
-      (err) => console.error(err),
     );
   }
 }

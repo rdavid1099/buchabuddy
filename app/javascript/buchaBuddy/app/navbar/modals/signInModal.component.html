@@ -11,13 +11,18 @@
       <div class="modal-body" id="signInModalBody">
         <flash-message></flash-message>
         <login *ngIf="modalState === 'login'"></login>
-        <sign-up *ngIf="modalState === 'signUp'"></sign-up>
+        <sign-up *ngIf="modalState === 'signUp' && false"></sign-up>
         <forgot-password *ngIf="modalState === 'forgotPassword'"></forgot-password>
         <resend-confirmation *ngIf="modalState === 'resendConfirmation'"></resend-confirmation>
       </div>
       <div class="sign-in-footer" id="signInModalFooter">
-        <sign-up-link *ngIf="content[modalState].footers.signUpLink"></sign-up-link>
+        <sign-up-link *ngIf="content[modalState].footers.signUpLink && false"></sign-up-link>
         <login-link *ngIf="content[modalState].footers.loginLink"></login-link>
+        <small
+        class="form-text text-muted"
+        *ngIf="!content[modalState].footers.loginLink">
+          BuchaBuddy is currently in alpha testing. Accounts can only be created by contacting the owner <a href="mailto:ryan@buchabuddy.com">ryan@buchabuddy.com</a>.
+        </small>
       </div>
     </div>
   </div>
