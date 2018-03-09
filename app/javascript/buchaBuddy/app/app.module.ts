@@ -11,12 +11,14 @@ import { NavbarModule } from "./navbar/navbar.module";
 import { StoreModule } from "./store/store.module";
 
 import { AppComponent } from "./app.component";
+import { DonateComponent } from "./donate/donate.component";
 import { TrackingToolsComponent } from "./trackingTools/trackingTools.component";
 
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
+    DonateComponent,
     TrackingToolsComponent,
   ],
   imports: [
