@@ -1,0 +1,21 @@
+@import "../../shared/color_scheme";
+
+#root {
+  .hero-banner {
+    background-color: $primary-light;
+  }
+
+  .icon {
+    margin-top: 30px;
+  }
+
+  bb-icon {
+    .icon-stroke {
+      stroke: $secondary-color;
+    }
+
+    .icon-letter{
+      fill: $secondary-color;
+    }
+  }
+}
