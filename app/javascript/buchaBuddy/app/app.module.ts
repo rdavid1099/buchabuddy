@@ -11,7 +11,6 @@ import { NavbarModule } from "./navbar/navbar.module";
 import { StoreModule } from "./store/store.module";
 
 import { AppComponent } from "./app.component";
-import { BBIconComponent } from "./components/bbIcon.component";
 import { DonateComponent } from "./donate/donate.component";
 import { PageNotFoundComponent } from "./pageNotFound/pageNotFound.component";
 import { RootComponent } from "./root/root.component";
@@ -21,7 +20,6 @@ import { TrackingToolsComponent } from "./trackingTools/trackingTools.component"
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
-    BBIconComponent,
     DonateComponent,
     PageNotFoundComponent,
     RootComponent,
