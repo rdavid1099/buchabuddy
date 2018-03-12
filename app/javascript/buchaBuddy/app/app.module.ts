@@ -12,6 +12,7 @@ import { StoreModule } from "./store/store.module";
 
 import { AppComponent } from "./app.component";
 import { DonateComponent } from "./donate/donate.component";
+import { FooterComponent } from "./footer/footer.component";
 import { PageNotFoundComponent } from "./pageNotFound/pageNotFound.component";
 import { RootComponent } from "./root/root.component";
 import { TrackingToolsComponent } from "./trackingTools/trackingTools.component";
@@ -21,6 +22,7 @@ import { TrackingToolsComponent } from "./trackingTools/trackingTools.component"
   declarations: [
     AppComponent,
     DonateComponent,
+    FooterComponent,
     PageNotFoundComponent,
     RootComponent,
     TrackingToolsComponent,
