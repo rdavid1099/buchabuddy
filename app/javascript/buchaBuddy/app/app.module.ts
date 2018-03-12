@@ -11,21 +11,21 @@ import { NavbarModule } from "./navbar/navbar.module";
 import { StoreModule } from "./store/store.module";
 
 import { AppComponent } from "./app.component";
+import { BrewToolsComponent } from "./brewTools/brewTools.component";
 import { DonateComponent } from "./donate/donate.component";
 import { FooterComponent } from "./footer/footer.component";
 import { PageNotFoundComponent } from "./pageNotFound/pageNotFound.component";
 import { RootComponent } from "./root/root.component";
-import { TrackingToolsComponent } from "./trackingTools/trackingTools.component";
 
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
+    BrewToolsComponent,
     DonateComponent,
     FooterComponent,
     PageNotFoundComponent,
     RootComponent,
-    TrackingToolsComponent,
   ],
   imports: [
     AppRoutingModule,
