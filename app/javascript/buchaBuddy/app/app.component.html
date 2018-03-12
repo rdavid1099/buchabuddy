@@ -1,8 +1,6 @@
 <div *ngIf="appLoaded">
   <navbar></navbar>
-  <div class="container">
-    <flash-message *ngIf="!modalState"></flash-message>
-    <router-outlet></router-outlet>
-  </div>
+  <flash-message *ngIf="!modalState"></flash-message>
+  <router-outlet></router-outlet>
   <footer></footer>
 </div>
