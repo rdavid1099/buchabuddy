@@ -15,34 +15,13 @@ export class BrewToolsComponent implements OnInit {
   public ngOnInit() {
     this.toolCards = [
       {
-        body: "This is a test card 0",
-        icon: "business",
-        title: "Testing",
-      },
-      {
-        body: "This is a test card 1",
-        icon: "business",
-        title: "Testing",
-      },
-      {
-        body: "This is a test card 2",
-        icon: "business",
-        title: "Testing",
-      },
-      {
-        body: "This is a test card 3",
-        icon: "business",
-        title: "Testing",
-      },
-      {
-        body: "This is a test card 4",
-        icon: "business",
-        title: "Testing",
-      },
-      {
-        body: "This is a test card 5",
-        icon: "business",
-        title: "Testing",
+        body: [
+          "Follow every batch from brew to bottle",
+          "Record new recipes",
+          "Trace the usage of ingredients and batches",
+        ],
+        icon: "donut_small",
+        title: "Tracking",
       },
     ];
     this.columnizedToolCards = this.columnizeToolCards(3);
@@ -53,11 +32,7 @@ export class BrewToolsComponent implements OnInit {
     for (let i = 0; i < Math.ceil(this.toolCards.length / columnNum); i++) {
       const startDigit = columnNum * i;
       const rowCards = [];
-      for (let x = 0; x < columnNum; x++) {
-        if (this.toolCards[startDigit + x]) {
-          rowCards.push(this.toolCards[startDigit + x]);
-        }
-      }
+      for (let x = 0; x < columnNum; x++) { rowCards.push(this.toolCards[startDigit + x]); }
       columnizedCards.push(rowCards);
     }
     return columnizedCards;

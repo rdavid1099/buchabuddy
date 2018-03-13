@@ -17,10 +17,21 @@
     <div class="row">
       <div
         class="col"
-        *ngFor="let card of cardsInRow">
-        <i class="material-icons">{{ card.icon }}</i>
-        <h5>{{ card.title }}</h5>
-        <p>{{ card.body }}</p>
+        *ngFor="let card of cardsInRow"
+        [ngClass]="{'card': card}">
+        <i
+          class="material-icons card-ico"
+          *ngIf="card">{{ card.icon }}</i>
+        <h5
+          class="card-hl"
+          *ngIf="card">{{ card.title }}</h5>
+        <span
+          class="card-body"
+          *ngIf="card">
+          <ul>
+            <li *ngFor="let body of card.body">{{body}}</li>
+          </ul>
+        </span>
       </div>
     </div>
   </div>

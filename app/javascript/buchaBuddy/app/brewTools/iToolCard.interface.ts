@@ -1,5 +1,5 @@
 export interface IToolCard {
   title: string;
-  body: string;
+  body: string[];
   icon: string;
 }
