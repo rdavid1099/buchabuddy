@@ -1,1 +1,27 @@
-<h1>Tracking Tools</h1>
+<div id="tools">
+  <div class="row header">
+    <div class="col">
+      <bb-icon
+        height="75"
+        width="95"
+        viewBox="0 0 400 400"
+        stroke="secondary-color"
+        fill="secondary-color"></bb-icon>
+      <h1 class="display-4 d-inline-block align-top">Simplifying Kombucha Brewing</h1>
+    </div>
+  </div>
+
+  <div
+    class="container"
+    *ngFor="let cardsInRow of columnizedToolCards">
+    <div class="row">
+      <div
+        class="col"
+        *ngFor="let card of cardsInRow">
+        <i class="material-icons">{{ card.icon }}</i>
+        <h5>{{ card.title }}</h5>
+        <p>{{ card.body }}</p>
+      </div>
+    </div>
+  </div>
+</div>
