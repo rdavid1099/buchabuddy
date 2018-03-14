@@ -23,6 +23,50 @@ export class BrewToolsComponent implements OnInit {
         icon: "donut_small",
         title: "Tracking",
       },
+      {
+        body: [
+          "Keep tabs on every SCOBY",
+          "Track the batch produced by each SCOBY",
+          "Ensure the best for every SCOBY",
+        ],
+        icon: "mood",
+        title: "SCOBY Hotel",
+      },
+      {
+        body: [
+          "Customizable dashboards",
+          "Clear data presentation",
+          "Predict future ingredient needs",
+        ],
+        icon: "insert_chart",
+        title: "Reporting",
+      },
+      {
+        body: [
+          "File the best recipes",
+          "List every success and failure",
+          "Improve upon batches",
+        ],
+        icon: "mode_edit",
+        title: "Results",
+      },
+      {
+        body: [
+          "Note fermenting time to taste",
+          "Document the fermenting process across multiple batches",
+        ],
+        icon: "bubble_chart",
+        title: "Fermentation",
+      },
+      {
+        body: [
+          "Batch completion notifications",
+          "Simply follow through the brewing lifecycle",
+          "Alerts when to taste and bottle batches",
+        ],
+        icon: "warning",
+        title: "Notifications",
+      },
     ];
     this.columnizedToolCards = this.columnizeToolCards(3);
   }
