@@ -9,6 +9,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { FlashMessageModule } from "./flashMessage/flashMessage.module";
 import { NavbarModule } from "./navbar/navbar.module";
 import { StoreModule } from "./store/store.module";
+import { UserModule } from "./user/user.module";
 
 import { AppComponent } from "./app.component";
 import { BrewToolsComponent } from "./brewTools/brewTools.component";
@@ -36,6 +37,7 @@ import { RootComponent } from "./root/root.component";
     NavbarModule,
     NgReduxModule,
     StoreModule,
+    UserModule,
   ],
   providers: [
     Angular2TokenService,
