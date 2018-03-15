@@ -1,0 +1,45 @@
+@import "../../shared/color_scheme";
+
+#tools {
+  .header {
+    background-color: $primary-light;
+    padding: 3% 0 3% 0;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+  }
+
+  .card {
+    border-radius: 0;
+    margin: 2%;
+    text-align: center;
+    padding: 0;
+    background-color: $text-on-second;
+    box-shadow: 2px 2px #f7f7f7;
+
+    .card-ico {
+      background-color: $secondary-color;
+      font-size: 40px;
+      color: $text-on-second;
+      padding: 2% 0 2% 0;
+    }
+
+    .card-hl {
+      margin: 20px 0 0 0;
+      font-weight: 400;
+    }
+
+    .card-body {
+      font-size: 15px;
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+
+        li {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}

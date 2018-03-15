@@ -8,10 +8,10 @@ module DefaultUrlOptions
 
 private
   def host
-    'localhost'
+    ENV['RAILS_ENV'] == 'development' ? 'localhost' : 'http://buchabuddy.com'
   end
 
   def port
-    5000
+    5000 if ENV['RAILS_ENV'] == 'development'
   end
 end

@@ -1,0 +1,39 @@
+@import "../../shared/color_scheme";
+
+#footer {
+  color: $text-on-second;
+  background-color: $secondary-color;
+  padding: 0 2vw 0 2vw;
+
+  .footer-hl, p {
+    font-weight: 100;
+  }
+
+  .footer-hl {
+    margin-top: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  p, a {
+    font-size: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #cacaca;
+  }
+
+  .copyright {
+    text-align: center;
+  }
+
+  .col {
+    p {
+      line-height: 18px;
+    }
+
+    img {
+      width: 28%;
+    }
+  }
+}

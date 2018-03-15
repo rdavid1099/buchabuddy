@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   }
 
   root to: 'bucha_buddy#index'
+  get '*unmatched_route' => 'bucha_buddy#index'
 end
