@@ -24,7 +24,6 @@ export class NavbarComponent implements OnInit {
     private ngRedux: NgRedux<IAppState>,
     private actions: NavbarActions,
   ) {
-    this.tokenService.init();
     ngRedux.select<boolean>("loggedIn")
       .subscribe((newLoggedInState) => this.loggedIn = newLoggedInState);
     ngRedux.select<IUser>("currentUser")

@@ -27,9 +27,7 @@ export class ForgotPasswordModalComponent implements OnInit {
     private ngRedux: NgRedux<IAppState>,
     private tokenService: Angular2TokenService,
     private actions: NavbarActions,
-  ) {
-    this.tokenService.init();
-  }
+  ) { }
 
   public ngOnInit() {
     this.dataDisable = false;

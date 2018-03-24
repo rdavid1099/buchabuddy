@@ -29,7 +29,6 @@ export class LoginModalComponent implements OnInit {
     private ngRedux: NgRedux<IAppState>,
     private actions: NavbarActions,
   ) {
-    this.tokenService.init();
     this.resetUser();
   }
 
