@@ -27,9 +27,7 @@ export class SignUpModalComponent implements OnInit {
     private tokenService: Angular2TokenService,
     private ngRedux: NgRedux<IAppState>,
     private actions: NavbarActions,
-  ) {
-    this.tokenService.init();
-  }
+  ) { }
 
   public ngOnInit() {
     this.dataDisable = false;

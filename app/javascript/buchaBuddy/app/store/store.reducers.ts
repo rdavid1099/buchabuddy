@@ -4,6 +4,7 @@ import { IAppState } from "./store.model";
 
 import { FlashMessageActions, FlashMessageActionTypes } from "../flashMessage/api/flashMessage.actions";
 import { NavbarActions } from "../navbar/api/navbar.actions";
+import { SidebarMenuActions, SidebarMenuActionTypes } from "../user/sidebarMenu/api/sidebarMenu.actions";
 import { UserActions, UserActionTypes } from "../user/user.actions";
 
 export const INITIAL_STATE: IAppState = {
@@ -11,6 +12,7 @@ export const INITIAL_STATE: IAppState = {
   loggedIn: false,
   message: null,
   modalState: null,
+  sidebarMenuSelected: null,
 };
 
 type Actions =
@@ -57,6 +59,10 @@ export function rootReducer(lastState: IAppState = INITIAL_STATE, action): IAppS
     case FlashMessageActionTypes.Unmount: return {
       ...lastState,
       message: action.payload,
+    };
+    case SidebarMenuActionTypes.ChangeSelection: return {
+      ...lastState,
+      sidebarMenuSelected: action.payload,
     };
   }
   return lastState;

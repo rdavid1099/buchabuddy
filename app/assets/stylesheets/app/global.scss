@@ -1,9 +1,13 @@
 @import '../shared/color_scheme';
 
-.style-link {
-  color: $primary-color;
+body {
+  background-color: #F5F5F6;
 
-  &:hover {
-    cursor: pointer;
+  .style-link {
+    color: $primary-color;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

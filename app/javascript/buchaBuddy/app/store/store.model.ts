@@ -7,4 +7,5 @@ export interface IAppState {
   currentUser: IUser;
   loggedIn: boolean;
   message: IMessage;
+  sidebarMenuSelected: string;
 }

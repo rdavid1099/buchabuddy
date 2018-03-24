@@ -42,6 +42,9 @@ export class AppComponent implements OnInit {
           this.ngRedux.dispatch(new UserActions.Login(loggedInUser).dispatch());
           this.appLoaded = true;
         },
+        (err) => {
+          this.appLoaded = true;
+        },
       );
     } else {
       this.appLoaded = true;
