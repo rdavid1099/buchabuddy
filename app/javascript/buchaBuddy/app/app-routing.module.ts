@@ -5,11 +5,13 @@ import { BrewToolsComponent } from "./brewTools/brewTools.component";
 import { DonateComponent } from "./donate/donate.component";
 import { PageNotFoundComponent } from "./pageNotFound/pageNotFound.component";
 import { RootComponent } from "./root/root.component";
+import { UserComponent } from "./user/user.component";
 
 const routes: Routes = [
   { path: "", component: RootComponent },
   { path: "tools", component: BrewToolsComponent },
   { path: "donate", component: DonateComponent },
+  { path: "dashboard", component: UserComponent },
   { path: "**", component: PageNotFoundComponent },
 ];
 
